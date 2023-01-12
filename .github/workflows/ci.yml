@@ -1,0 +1,23 @@
+on:
+  push:
+  pull_request:
+    branches: [master]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download source
+        uses: actions/checkout@v2
+      - name: Install Crystal
+        uses: crystal-lang/install-crystal@v1
+      - name: Cache shards
+        uses: actions/cache@v2
+        with:
+          path: lib
+          key: ${{ runner.os }}-shards-${{ hashFiles('**/shard.lock') }}
+      - name: Install shards
+        run: shards check || shards install
+      - name: Install packages
+        run: sudo apt-get --fix-missing -qy install libvips-dev
+      - name: Build
+        run: crystal build src/gd-icon-renderer.cr
