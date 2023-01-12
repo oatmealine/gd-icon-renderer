@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="generator" content="Crystal Docs 1.6.2">
+<meta name="crystal_docs.project_version" content="main">
+<meta name="crystal_docs.project_name" content="gd-icon-renderer">
+
+
+
+<link href="../css/style.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="../js/doc.js"></script>
+
+  <meta name="repository-name" content="gd-icon-renderer">
+  <title>IconRenderer::Renderer - gd-icon-renderer main</title>
+  <script type="text/javascript">
+    CrystalDocs.base_path = "../";
+  </script>
+</head>
+<body>
+
+<svg class="hidden">
+  <symbol id="octicon-link" viewBox="0 0 16 16">
+    <path fill-rule="evenodd" d="M4 9h1v1H4c-1.5 0-3-1.69-3-3.5S2.55 3 4 3h4c1.45 0 3 1.69 3 3.5 0 1.41-.91 2.72-2 3.25V8.59c.58-.45 1-1.27 1-2.09C10 5.22 8.98 4 8 4H4c-.98 0-2 1.22-2 2.5S3 9 4 9zm9-3h-1v1h1c1 0 2 1.22 2 2.5S13.98 12 13 12H9c-.98 0-2-1.22-2-2.5 0-.83.42-1.64 1-2.09V6.25c-1.09.53-2 1.84-2 3.25C6 11.31 7.55 13 9 13h4c1.45 0 3-1.69 3-3.5S14.5 6 13 6z"></path>
+  </symbol>
+</svg>
+<div class="sidebar">
+  <div class="sidebar-header">
+    <div class="search-box">
+      <input type="search" class="search-input" placeholder="Search..." spellcheck="false" aria-label="Search">
+    </div>
+
+    <div class="project-summary">
+      <h1 class="project-name">
+        <a href="../index.html">
+          gd-icon-renderer
+        </a>
+      </h1>
+
+      <span class="project-version">
+        main
+      </span>
+    </div>
+  </div>
+
+  <div class="search-results hidden">
+    <ul class="search-list"></ul>
+  </div>
+
+  <div class="types-list">
+    <ul>
+  
+  <li class=" " data-id="gd-icon-renderer/toplevel" data-name="top level namespace">
+      <a href="../toplevel.html">Top Level Namespace</a>
+      
+    </li>
+  
+  <li class=" " data-id="gd-icon-renderer/Hash" data-name="hash(k, v)">
+      <a href="../Hash.html">Hash</a>
+      
+    </li>
+  
+  <li class="parent open current" data-id="gd-icon-renderer/IconRenderer" data-name="iconrenderer">
+      <a href="../IconRenderer.html">IconRenderer</a>
+      
+        <ul>
+  
+  <li class=" " data-id="gd-icon-renderer/IconRenderer/Assets" data-name="iconrenderer::assets">
+      <a href="../IconRenderer/Assets.html">Assets</a>
+      
+    </li>
+  
+  <li class=" current" data-id="gd-icon-renderer/IconRenderer/Renderer" data-name="iconrenderer::renderer">
+      <a href="../IconRenderer/Renderer.html">Renderer</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+</ul>
+
+  </div>
+</div>
+
+
+<div class="main-content">
+<h1 class="type-name">
+
+  <span class="kind">module</span> IconRenderer::Renderer
+
+</h1>
+
+
+
+
+
+  <h2>
+    <a id="overview" class="anchor" href="#overview">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Overview
+  </h2>
+
+  <p>The main renderer module; familiarity with <a href="https://naqvis.github.io/crystal-vips/index.html">CrystalVips</a> is highly recommended.</p>
+
+
+
+
+
+
+
+  <h2>
+    <a id="extended-modules" class="anchor" href="#extended-modules">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Extended Modules
+  </h2>
+  <ul class="other-types-list">
+    
+      <li class="other-type"><a href="../IconRenderer/Renderer.html">IconRenderer::Renderer</a></li>
+    
+  </ul>
+
+
+
+
+
+
+
+
+  <h2>
+    <a id="defined-in" class="anchor" href="#defined-in">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Defined in:
+  </h2>
+  
+    
+      <a href="https://github.com/oatmealine/gd-icon-renderer/blob/96508370f223be8d3886ece112f9f3337093061a/src/gd-icon-renderer.cr#L50" target="_blank">
+        gd-icon-renderer.cr
+      </a>
+    
+    <br/>
+  
+
+
+
+
+
+
+
+
+
+  <h2>
+    <a id="instance-method-summary" class="anchor" href="#instance-method-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Summary
+  </h2>
+  <ul class="list-summary">
+    
+      <li class="entry-summary">
+        <a href="#render_icon%28filename%3AString%2Ccol1%3AArray%28Float64%29%2Ccol2%3AArray%28Float64%29%29-instance-method" class="signature"><strong>#render_icon</strong>(filename : String, col1 : Array(Float64), col2 : Array(Float64))</a>
+        
+          <div class="summary"><p>The main entrypoint for icon rendering; this should be all you need to render out an icon.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#render_layered%28images%3AArray%28Vips%3A%3AImage%29%2Csizes%3AArray%28Tuple%28Int32%2CInt32%29%29%2Ccolors%3AArray%28Array%28Float64%29%7CNil%29%29-instance-method" class="signature"><strong>#render_layered</strong>(images : Array(Vips::Image), sizes : Array(Tuple(Int32, Int32)), colors : Array(Array(Float64) | Nil))</a>
+        
+      </li>
+    
+  </ul>
+
+
+
+
+
+<div class="methods-inherited">
+  
+</div>
+
+
+
+
+
+
+  <h2>
+    <a id="instance-method-detail" class="anchor" href="#instance-method-detail">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+    Instance Method Detail
+  </h2>
+  
+    <div class="entry-detail" id="render_icon(filename:String,col1:Array(Float64),col2:Array(Float64))-instance-method">
+      <div class="signature">
+        
+        def <strong>render_icon</strong>(filename : String, col1 : Array(Float64), col2 : Array(Float64))
+
+        <a class="method-permalink" href="#render_icon%28filename%3AString%2Ccol1%3AArray%28Float64%29%2Ccol2%3AArray%28Float64%29%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>The main entrypoint for icon rendering; this should be all you need to render out an icon.</p>
+<p>Example:</p>
+<pre><code class="language-crystal"><span class="c"># Render out the icon</span>
+icon_img <span class="o">=</span> <span class="t">IconRenderer</span><span class="t">::</span><span class="t">Renderer</span>.render_icon(<span class="s">&quot;ship_44&quot;</span>, [<span class="n">0.0</span>, <span class="n">0.0</span>, <span class="n">0.0</span>, <span class="n">1.0</span>], [<span class="n">255</span><span class="o">/</span><span class="n">255</span>, <span class="n">125</span><span class="o">/</span><span class="n">255</span>, <span class="n">125</span><span class="o">/</span><span class="n">255</span>, <span class="n">1.0</span>])
+<span class="c"># Trim it out</span>
+alpha <span class="o">=</span> icon_img.extract_band(<span class="n">3</span>)
+left, top, width, height <span class="o">=</span> alpha.find_trim(threshold: <span class="n">0</span>, background: [<span class="n">0</span>])
+icon_img <span class="o">=</span> icon_img.crop(left, top, width, height)
+<span class="c"># Write it to a file</span>
+icon_img.write_to_file(<span class="s">&quot;icon_rendered.png&quot;</span>)</code></pre>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/96508370f223be8d3886ece112f9f3337093061a/src/gd-icon-renderer.cr#L82" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="render_layered(images:Array(Vips::Image),sizes:Array(Tuple(Int32,Int32)),colors:Array(Array(Float64)|Nil))-instance-method">
+      <div class="signature">
+        
+        def <strong>render_layered</strong>(images : Array(Vips::Image), sizes : Array(Tuple(Int32, Int32)), colors : Array(Array(Float64) | Nil))
+
+        <a class="method-permalink" href="#render_layered%28images%3AArray%28Vips%3A%3AImage%29%2Csizes%3AArray%28Tuple%28Int32%2CInt32%29%29%2Ccolors%3AArray%28Array%28Float64%29%7CNil%29%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/96508370f223be8d3886ece112f9f3337093061a/src/gd-icon-renderer.cr#L53" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+
+
+
+
+</div>
+
+</body>
+</html>
