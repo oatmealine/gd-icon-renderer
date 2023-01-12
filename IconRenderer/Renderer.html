@@ -51,16 +51,6 @@
   <div class="types-list">
     <ul>
   
-  <li class=" " data-id="gd-icon-renderer/toplevel" data-name="top level namespace">
-      <a href="../toplevel.html">Top Level Namespace</a>
-      
-    </li>
-  
-  <li class=" " data-id="gd-icon-renderer/Hash" data-name="hash(k, v)">
-      <a href="../Hash.html">Hash</a>
-      
-    </li>
-  
   <li class="parent open current" data-id="gd-icon-renderer/IconRenderer" data-name="iconrenderer">
       <a href="../IconRenderer.html">IconRenderer</a>
       
@@ -68,6 +58,36 @@
   
   <li class=" " data-id="gd-icon-renderer/IconRenderer/Assets" data-name="iconrenderer::assets">
       <a href="../IconRenderer/Assets.html">Assets</a>
+      
+    </li>
+  
+  <li class="parent " data-id="gd-icon-renderer/IconRenderer/Constants" data-name="iconrenderer::constants">
+      <a href="../IconRenderer/Constants.html">Constants</a>
+      
+        <ul>
+  
+  <li class=" " data-id="gd-icon-renderer/IconRenderer/Constants/Gamemode" data-name="iconrenderer::constants::gamemode">
+      <a href="../IconRenderer/Constants/Gamemode.html">Gamemode</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="gd-icon-renderer/IconRenderer/PList" data-name="iconrenderer::plist">
+      <a href="../IconRenderer/PList.html">PList</a>
+      
+        <ul>
+  
+  <li class=" " data-id="gd-icon-renderer/IconRenderer/PList/Value" data-name="iconrenderer::plist::value">
+      <a href="../IconRenderer/PList/Value.html">Value</a>
+      
+    </li>
+  
+</ul>
+
       
     </li>
   
@@ -146,8 +166,8 @@
   </h2>
   
     
-      <a href="https://github.com/oatmealine/gd-icon-renderer/blob/f5afc5022fc363f38a3883e22ac70dc79034ec1f/src/gd-icon-renderer.cr#L50" target="_blank">
-        gd-icon-renderer.cr
+      <a href="https://github.com/oatmealine/gd-icon-renderer/blob/668901e4a3b81568d7eb61260a77d14d70115d9c/src/renderer.cr#L2" target="_blank">
+        renderer.cr
       </a>
     
     <br/>
@@ -172,7 +192,7 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#render_icon%28filename%3AString%2Ccol1%3AArray%28Float64%29%2Ccol2%3AArray%28Float64%29%29-instance-method" class="signature"><strong>#render_icon</strong>(filename : String, col1 : Array(Float64), col2 : Array(Float64))</a>
+        <a href="#render_icon%28filename%3AString%2Ccol1%3AArray%28Float64%29%2Ccol2%3AArray%28Float64%29%2Cglow%3ABool%2Cgame_sheet_02%3ATuple%28PList%3A%3AValue%2CString%29%2Cgame_sheet_glow%3ATuple%28PList%3A%3AValue%2CString%29%29-instance-method" class="signature"><strong>#render_icon</strong>(filename : String, col1 : Array(Float64), col2 : Array(Float64), glow : Bool, game_sheet_02 : Tuple(PList::Value, String), game_sheet_glow : Tuple(PList::Value, String))</a>
         
           <div class="summary"><p>The main entrypoint for icon rendering; this should be all you need to render out an icon.</p></div>
         
@@ -180,6 +200,8 @@
     
       <li class="entry-summary">
         <a href="#render_layered%28images%3AArray%28Vips%3A%3AImage%29%2Csizes%3AArray%28Tuple%28Int32%2CInt32%29%29%2Ccolors%3AArray%28Array%28Float64%29%7CNil%29%29-instance-method" class="signature"><strong>#render_layered</strong>(images : Array(Vips::Image), sizes : Array(Tuple(Int32, Int32)), colors : Array(Array(Float64) | Nil))</a>
+        
+          <div class="summary"><p>Mainly for internal use; given an array of images, their sizes and colors, tints and composits them over each other.</p></div>
         
       </li>
     
@@ -207,20 +229,23 @@
     Instance Method Detail
   </h2>
   
-    <div class="entry-detail" id="render_icon(filename:String,col1:Array(Float64),col2:Array(Float64))-instance-method">
+    <div class="entry-detail" id="render_icon(filename:String,col1:Array(Float64),col2:Array(Float64),glow:Bool,game_sheet_02:Tuple(PList::Value,String),game_sheet_glow:Tuple(PList::Value,String))-instance-method">
       <div class="signature">
         
-        def <strong>render_icon</strong>(filename : String, col1 : Array(Float64), col2 : Array(Float64))
+        def <strong>render_icon</strong>(filename : String, col1 : Array(Float64), col2 : Array(Float64), glow : Bool, game_sheet_02 : Tuple(<a href="../IconRenderer/PList/Value.html">PList::Value</a>, String), game_sheet_glow : Tuple(<a href="../IconRenderer/PList/Value.html">PList::Value</a>, String))
 
-        <a class="method-permalink" href="#render_icon%28filename%3AString%2Ccol1%3AArray%28Float64%29%2Ccol2%3AArray%28Float64%29%29-instance-method">#</a>
+        <a class="method-permalink" href="#render_icon%28filename%3AString%2Ccol1%3AArray%28Float64%29%2Ccol2%3AArray%28Float64%29%2Cglow%3ABool%2Cgame_sheet_02%3ATuple%28PList%3A%3AValue%2CString%29%2Cgame_sheet_glow%3ATuple%28PList%3A%3AValue%2CString%29%29-instance-method">#</a>
       </div>
       
         <div class="doc">
           
           <p>The main entrypoint for icon rendering; this should be all you need to render out an icon.</p>
 <p>Example:</p>
-<pre><code class="language-crystal"><span class="c"># Render out the icon</span>
-icon_img <span class="o">=</span> <span class="t">IconRenderer</span><span class="t">::</span><span class="t">Renderer</span>.render_icon(<span class="s">&quot;ship_44&quot;</span>, [<span class="n">0.0</span>, <span class="n">0.0</span>, <span class="n">0.0</span>, <span class="n">1.0</span>], [<span class="n">255</span><span class="o">/</span><span class="n">255</span>, <span class="n">125</span><span class="o">/</span><span class="n">255</span>, <span class="n">125</span><span class="o">/</span><span class="n">255</span>, <span class="n">1.0</span>])
+<pre><code class="language-crystal"><span class="c"># Load assets</span>
+<span class="t">GAME_SHEET_02</span> <span class="o">=</span> {<span class="t">Assets</span>.load_plist(<span class="s">&quot;data/GJ_GameSheet02-uhd.plist&quot;</span>), <span class="s">&quot;data/GJ_GameSheet02-uhd&quot;</span>}
+<span class="t">GAME_SHEET_GLOW</span> <span class="o">=</span> {<span class="t">Assets</span>.load_plist(<span class="s">&quot;data/GJ_GameSheetGlow-uhd.plist&quot;</span>), <span class="s">&quot;data/GJ_GameSheetGlow-uhd&quot;</span>}
+<span class="c"># Render out the icon</span>
+icon_img <span class="o">=</span> <span class="t">IconRenderer</span><span class="t">::</span><span class="t">Renderer</span>.render_icon(<span class="s">&quot;ship_44&quot;</span>, [<span class="n">0.0</span>, <span class="n">0.0</span>, <span class="n">0.0</span>, <span class="n">1.0</span>], [<span class="n">255</span><span class="o">/</span><span class="n">255</span>, <span class="n">125</span><span class="o">/</span><span class="n">255</span>, <span class="n">125</span><span class="o">/</span><span class="n">255</span>, <span class="n">1.0</span>], <span class="n">true</span>, <span class="t">GAME_SHEET_02</span>, <span class="t">GAME_SHEET_GLOW</span>)
 <span class="c"># Trim it out</span>
 alpha <span class="o">=</span> icon_img.extract_band(<span class="n">3</span>)
 left, top, width, height <span class="o">=</span> alpha.find_trim(threshold: <span class="n">0</span>, background: [<span class="n">0</span>])
@@ -232,7 +257,7 @@ icon_img.write_to_file(<span class="s">&quot;icon_rendered.png&quot;</span>)</co
       <br/>
       <div>
         
-          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/f5afc5022fc363f38a3883e22ac70dc79034ec1f/src/gd-icon-renderer.cr#L82" target="_blank">View source</a>]
+          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/668901e4a3b81568d7eb61260a77d14d70115d9c/src/renderer.cr#L48" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -245,10 +270,15 @@ icon_img.write_to_file(<span class="s">&quot;icon_rendered.png&quot;</span>)</co
         <a class="method-permalink" href="#render_layered%28images%3AArray%28Vips%3A%3AImage%29%2Csizes%3AArray%28Tuple%28Int32%2CInt32%29%29%2Ccolors%3AArray%28Array%28Float64%29%7CNil%29%29-instance-method">#</a>
       </div>
       
+        <div class="doc">
+          
+          <p>Mainly for internal use; given an array of images, their sizes and colors, tints and composits them over each other.</p>
+        </div>
+      
       <br/>
       <div>
         
-          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/f5afc5022fc363f38a3883e22ac70dc79034ec1f/src/gd-icon-renderer.cr#L53" target="_blank">View source</a>]
+          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/668901e4a3b81568d7eb61260a77d14d70115d9c/src/renderer.cr#L12" target="_blank">View source</a>]
         
       </div>
     </div>

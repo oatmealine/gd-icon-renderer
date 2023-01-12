@@ -51,16 +51,6 @@
   <div class="types-list">
     <ul>
   
-  <li class=" " data-id="gd-icon-renderer/toplevel" data-name="top level namespace">
-      <a href="toplevel.html">Top Level Namespace</a>
-      
-    </li>
-  
-  <li class=" " data-id="gd-icon-renderer/Hash" data-name="hash(k, v)">
-      <a href="Hash.html">Hash</a>
-      
-    </li>
-  
   <li class="parent " data-id="gd-icon-renderer/IconRenderer" data-name="iconrenderer">
       <a href="IconRenderer.html">IconRenderer</a>
       
@@ -68,6 +58,36 @@
   
   <li class=" " data-id="gd-icon-renderer/IconRenderer/Assets" data-name="iconrenderer::assets">
       <a href="IconRenderer/Assets.html">Assets</a>
+      
+    </li>
+  
+  <li class="parent " data-id="gd-icon-renderer/IconRenderer/Constants" data-name="iconrenderer::constants">
+      <a href="IconRenderer/Constants.html">Constants</a>
+      
+        <ul>
+  
+  <li class=" " data-id="gd-icon-renderer/IconRenderer/Constants/Gamemode" data-name="iconrenderer::constants::gamemode">
+      <a href="IconRenderer/Constants/Gamemode.html">Gamemode</a>
+      
+    </li>
+  
+</ul>
+
+      
+    </li>
+  
+  <li class="parent " data-id="gd-icon-renderer/IconRenderer/PList" data-name="iconrenderer::plist">
+      <a href="IconRenderer/PList.html">PList</a>
+      
+        <ul>
+  
+  <li class=" " data-id="gd-icon-renderer/IconRenderer/PList/Value" data-name="iconrenderer::plist::value">
+      <a href="IconRenderer/PList/Value.html">Value</a>
+      
+    </li>
+  
+</ul>
+
       
     </li>
   
@@ -92,6 +112,7 @@
     <use href="#octicon-link"/>
   </svg>
 </a>gd-icon-renderer</h1>
+<p><a href="https://oatmealine.github.io/gd-icon-renderer/"><img src="https://img.shields.io/badge/docs-available-brightgreen.svg" alt="Docs" /></a></p>
 <p>A (WIP) Crystal Geometry Dash icon renderer library, utilizing <a href="https://www.libvips.org/">libvips</a></p>
 <h2><a id="why" class="anchor" href="#why">
   <svg class="octicon-link" aria-hidden="true">
@@ -99,13 +120,35 @@
   </svg>
 </a>Why?</h2>
 <p>Server-side rendering of icons. This functionality doesn't need to be restricted to an HTTP server, so I figured I could just move it into a library.</p>
-<h2><a id="how-to-use" class="anchor" href="#how-to-use">
+<h2><a id="pre-requisites" class="anchor" href="#pre-requisites">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
   </svg>
-</a>How to use</h2>
-<p>The library is in its infancy stages; you'll be offered very little support in getting this to work in an actual application. Currently, you'll have to plug an <a href="https://gdcolon.com/gdsplitter/">extracted spritesheet</a> of <code>GJ_GameSheet02-uhd</code> and <code>GJ_GameSheetGlow-uhd</code> along with their <code>plist</code> files in <code>data/</code>.</p>
-<p>After that's done, run <code>shards install</code> and <code>shards build</code>; you'll need <code>libvips-devel</code> installed for the build step and <code>libvips</code> itself installed during runtime. Then run <code>bin/gd-icon-renderer</code> or <code>shards run</code> to do a quick test of whatever's being tested right now.</p>
+</a>Pre-requisites</h2>
+<p>You'll need to install <a href="https://www.libvips.org/install.html">libvips</a>, alongside a <code>devel</code> package for building if available. <strong>Be sure to leave this note in the README of the application you're making too.</strong></p>
+<h2><a id="installation" class="anchor" href="#installation">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Installation</h2>
+<ol>
+<li>
+<p>Add the dependency to your <code>shard.yml</code>:</p>
+<pre><code class="language-yaml">dependencies:
+  gd-icon-renderer:
+    github: oatmealine/gd-icon-renderer</code></pre>
+</li>
+<li>
+<p>Run <code>shards install</code></p>
+</li>
+</ol>
+<h2><a id="usage" class="anchor" href="#usage">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>Usage</h2>
+<p>The library is in its infancy stages; you'll be offered very little support in getting this to work in an actual application.</p>
+<p>Currently, for all examples under <code>examples/</code>, you'll have to plug an <a href="https://gdcolon.com/gdsplitter/">extracted spritesheet</a> of <code>GJ_GameSheet02-uhd</code> and <code>GJ_GameSheetGlow-uhd</code> along with their <code>plist</code> files in <code>data/</code>.</p>
 </div>
 </body>
 </html>

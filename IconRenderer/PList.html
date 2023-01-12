@@ -13,7 +13,7 @@
 <script type="text/javascript" src="../js/doc.js"></script>
 
   <meta name="repository-name" content="gd-icon-renderer">
-  <title>IconRenderer::Assets - gd-icon-renderer main</title>
+  <title>IconRenderer::PList - gd-icon-renderer main</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "../";
   </script>
@@ -56,7 +56,7 @@
       
         <ul>
   
-  <li class=" current" data-id="gd-icon-renderer/IconRenderer/Assets" data-name="iconrenderer::assets">
+  <li class=" " data-id="gd-icon-renderer/IconRenderer/Assets" data-name="iconrenderer::assets">
       <a href="../IconRenderer/Assets.html">Assets</a>
       
     </li>
@@ -76,7 +76,7 @@
       
     </li>
   
-  <li class="parent " data-id="gd-icon-renderer/IconRenderer/PList" data-name="iconrenderer::plist">
+  <li class="parent open current" data-id="gd-icon-renderer/IconRenderer/PList" data-name="iconrenderer::plist">
       <a href="../IconRenderer/PList.html">PList</a>
       
         <ul>
@@ -110,7 +110,7 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">module</span> IconRenderer::Assets
+  <span class="kind">module</span> IconRenderer::PList
 
 </h1>
 
@@ -127,27 +127,13 @@
     Overview
   </h2>
 
-  <p>Module handling game assets</p>
+  <p>Nabbed from https://github.com/egillet/plist-cr/</p>
 
 
 
 
 
 
-
-  <h2>
-    <a id="extended-modules" class="anchor" href="#extended-modules">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Extended Modules
-  </h2>
-  <ul class="other-types-list">
-    
-      <li class="other-type"><a href="../IconRenderer/Assets.html">IconRenderer::Assets</a></li>
-    
-  </ul>
 
 
 
@@ -166,8 +152,22 @@
   </h2>
   
     
-      <a href="https://github.com/oatmealine/gd-icon-renderer/blob/668901e4a3b81568d7eb61260a77d14d70115d9c/src/assets.cr#L2" target="_blank">
-        assets.cr
+      <a href="https://github.com/oatmealine/gd-icon-renderer/blob/668901e4a3b81568d7eb61260a77d14d70115d9c/src/lib/plist.cr#L4" target="_blank">
+        lib/plist.cr
+      </a>
+    
+    <br/>
+  
+    
+      <a href="https://github.com/oatmealine/gd-icon-renderer/blob/668901e4a3b81568d7eb61260a77d14d70115d9c/src/lib/plist/parser.cr#L4" target="_blank">
+        lib/plist/parser.cr
+      </a>
+    
+    <br/>
+  
+    
+      <a href="https://github.com/oatmealine/gd-icon-renderer/blob/668901e4a3b81568d7eb61260a77d14d70115d9c/src/lib/plist/version.cr#L1" target="_blank">
+        lib/plist/version.cr
       </a>
     
     <br/>
@@ -175,37 +175,57 @@
 
 
 
-
+  
+    <h2>
+      <a id="constant-summary" class="anchor" href="#constant-summary">
+  <svg class="octicon-link" aria-hidden="true">
+    <use href="#octicon-link"/>
+  </svg>
+</a>
+      Constant Summary
+    </h2>
+  
+  <dl>
+    
+      <dt class="entry-const" id="DATE_FORMAT">
+        <strong>DATE_FORMAT</strong> = <code><span class="s">&quot;%FT%X&quot;</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="VERSION">
+        <strong>VERSION</strong> = <code><span class="s">&quot;0.1.0&quot;</span></code>
+      </dt>
+      
+    
+  </dl>
 
 
 
 
 
   <h2>
-    <a id="instance-method-summary" class="anchor" href="#instance-method-summary">
+    <a id="class-method-summary" class="anchor" href="#class-method-summary">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
   </svg>
 </a>
-    Instance Method Summary
+    Class Method Summary
   </h2>
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#load%28path%3AString%2Cassets%3ATuple%28PList%3A%3AValue%2CString%29%29-instance-method" class="signature"><strong>#load</strong>(path : String, assets : Tuple(PList::Value, String))</a>
-        
-          <div class="summary"><p>Load a given asset.</p></div>
+        <a href="#parse%28io%3AIO%29-class-method" class="signature"><strong>.parse</strong>(io : IO)</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#load_plist%28path%3AString%29-instance-method" class="signature"><strong>#load_plist</strong>(path : String)</a>
-        
-          <div class="summary"><p>Loads a .plist file and parses it.</p></div>
+        <a href="#parse%28xml%3AString%29-class-method" class="signature"><strong>.parse</strong>(xml : String)</a>
         
       </li>
     
   </ul>
+
+
 
 
 
@@ -218,59 +238,49 @@
 
 
 
-
-
   <h2>
-    <a id="instance-method-detail" class="anchor" href="#instance-method-detail">
+    <a id="class-method-detail" class="anchor" href="#class-method-detail">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
   </svg>
 </a>
-    Instance Method Detail
+    Class Method Detail
   </h2>
   
-    <div class="entry-detail" id="load(path:String,assets:Tuple(PList::Value,String))-instance-method">
+    <div class="entry-detail" id="parse(io:IO)-class-method">
       <div class="signature">
         
-        def <strong>load</strong>(path : String, assets : Tuple(<a href="../IconRenderer/PList/Value.html">PList::Value</a>, String))
+        def self.<strong>parse</strong>(io : IO)
 
-        <a class="method-permalink" href="#load%28path%3AString%2Cassets%3ATuple%28PList%3A%3AValue%2CString%29%29-instance-method">#</a>
+        <a class="method-permalink" href="#parse%28io%3AIO%29-class-method">#</a>
       </div>
-      
-        <div class="doc">
-          
-          <p>Load a given asset. <code>path</code> acts as the name, while <code>assets</code> is a tuple of the parsed .plist file and its name; see <code><a href="../IconRenderer/Assets.html#load_plist%28path%3AString%29-instance-method">#load_plist</a></code>.</p>
-        </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/668901e4a3b81568d7eb61260a77d14d70115d9c/src/assets.cr#L13" target="_blank">View source</a>]
+          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/668901e4a3b81568d7eb61260a77d14d70115d9c/src/lib/plist/parser.cr#L5" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="load_plist(path:String)-instance-method">
+    <div class="entry-detail" id="parse(xml:String)-class-method">
       <div class="signature">
         
-        def <strong>load_plist</strong>(path : String)
+        def self.<strong>parse</strong>(xml : String)
 
-        <a class="method-permalink" href="#load_plist%28path%3AString%29-instance-method">#</a>
+        <a class="method-permalink" href="#parse%28xml%3AString%29-class-method">#</a>
       </div>
-      
-        <div class="doc">
-          
-          <p>Loads a .plist file and parses it. Made as a quick shorthand.</p>
-        </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/668901e4a3b81568d7eb61260a77d14d70115d9c/src/assets.cr#L6" target="_blank">View source</a>]
+          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/668901e4a3b81568d7eb61260a77d14d70115d9c/src/lib/plist/parser.cr#L10" target="_blank">View source</a>]
         
       </div>
     </div>
   
+
+
 
 
 
