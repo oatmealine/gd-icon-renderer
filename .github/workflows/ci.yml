@@ -20,6 +20,6 @@ jobs:
       - name: Install shards
         run: shards check || shards install
       - name: Install packages
-        run: sudo apt-get --fix-missing -qy install libvips-dev
+        run: sudo apt-get --fix-missing --no-install-recommends -qy install libvips-dev
       - name: Build
         run: crystal build src/gd-icon-renderer.cr
