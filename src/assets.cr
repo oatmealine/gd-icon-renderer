@@ -1,5 +1,3 @@
-include IconRenderer
-
 # Module handling game assets
 module IconRenderer::Assets
   extend self

@@ -1,5 +1,3 @@
-include IconRenderer
-
 # The main renderer module; familiarity with [CrystalVips](https://naqvis.github.io/crystal-vips/index.html) is highly recommended.
 module IconRenderer::Renderer
   extend self
