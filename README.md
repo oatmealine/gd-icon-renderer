@@ -8,8 +8,24 @@ A (WIP) Crystal Geometry Dash icon renderer library, utilizing [libvips](https:/
 
 Server-side rendering of icons. This functionality doesn't need to be restricted to an HTTP server, so I figured I could just move it into a library.
 
-## How to use
+## Pre-requisites
 
-The library is in its infancy stages; you'll be offered very little support in getting this to work in an actual application. Currently, you'll have to plug an [extracted spritesheet](https://gdcolon.com/gdsplitter/) of `GJ_GameSheet02-uhd` and `GJ_GameSheetGlow-uhd` along with their `plist` files in `data/`.
+You'll need to install [libvips](https://www.libvips.org/install.html), alongside a `devel` package for building if available. **Be sure to leave this note in the README of the application you're making too.**
 
-After that's done, run `shards install` and `shards build`; you'll need `libvips-devel` installed for the build step and `libvips` itself installed during runtime. Then run `bin/gd-icon-renderer` or `shards run` to do a quick test of whatever's being tested right now.
+## Installation
+
+1. Add the dependency to your `shard.yml`:
+
+    ```yaml
+    dependencies:
+      gd-icon-renderer:
+        github: oatmealine/gd-icon-renderer
+    ```
+
+2. Run `shards install`
+
+## Usage
+
+The library is in its infancy stages; you'll be offered very little support in getting this to work in an actual application.
+
+Currently, for all examples under `examples/`, you'll have to plug an [extracted spritesheet](https://gdcolon.com/gdsplitter/) of `GJ_GameSheet02-uhd` and `GJ_GameSheetGlow-uhd` along with their `plist` files in `data/`.
