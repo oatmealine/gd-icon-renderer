@@ -50,23 +50,15 @@ module IconRenderer::Renderer
     c[0] == 0.0 && c[1] == 0.0 && c[2] == 0.0
   end
 
-  # The main entrypoint for icon rendering; this should be all you need to render out an icon.
+  # Renders out a non-robot/spider icon. You may be looking for `render_icon`.
   #
   # Example:
   # ```
-  # # Load assets
   # GAME_SHEET_02 = IconRenderer::Assets.load_spritesheet("data/GJ_GameSheet02-uhd.plist")
   # GAME_SHEET_GLOW = IconRenderer::Assets.load_spritesheet("data/GJ_GameSheetGlow-uhd.plist")
-  # # Render out the icon
-  # icon_img = IconRenderer::Renderer.render_icon("ship_44", [0.0, 0.0, 0.0, 1.0], [255/255, 125/255, 125/255, 1.0], true, GAME_SHEET_02, GAME_SHEET_GLOW)
-  # # Trim it out
-  # alpha = icon_img.extract_band(3)
-  # left, top, width, height = alpha.find_trim(threshold: 0, background: [0])
-  # icon_img = icon_img.crop(left, top, width, height)
-  # # Write it to a file
-  # icon_img.write_to_file("icon_rendered.png")
+  # icon_img = IconRenderer::Renderer.render_normal("ship_44", [0.0, 0.0, 0.0, 1.0], [255/255, 125/255, 125/255, 1.0], true, GAME_SHEET_02, GAME_SHEET_GLOW)
   # ```
-  def render_icon(basename : String, col1 : Array(Float64), col2 : Array(Float64), glow : Bool, game_sheet_02 : Assets::LoadedSpritesheet, game_sheet_glow : Assets::LoadedSpritesheet)
+  def render_normal(basename : String, col1 : Array(Float64), col2 : Array(Float64), glow : Bool, game_sheet_02 : Assets::LoadedSpritesheet, game_sheet_glow : Assets::LoadedSpritesheet)
     glow_col = is_black(col2) ? (is_black(col1) ? [1.0, 1.0, 1.0, 1.0] : col1) : col2
 
     layers = [
@@ -92,7 +84,10 @@ module IconRenderer::Renderer
     {scale[0] * (flipped[0] ? -1 : 1), scale[1] * (flipped[1] ? -1 : 1)}
   end
 
-  # `render_icon`, except for robots and spiders. Additionally requires animations for both:
+  # `render_normal`, except for robots and spiders. Additionally requires animations for both.
+  #
+  # Example:
+  #
   # ```
   # GAME_SHEET_02 = IconRenderer::Assets.load_spritesheet("data/GJ_GameSheet02-uhd.plist")
   # GAME_SHEET_GLOW = IconRenderer::Assets.load_spritesheet("data/GJ_GameSheetGlow-uhd.plist")
@@ -142,7 +137,6 @@ module IconRenderer::Renderer
 
     layers_r = layers.select { |v| v[0] != nil }
 
-    i = -1
     render_layered(
       layers_r.map { |t| t[0].not_nil![0] },
       layers_r.map { |t| {t[0].not_nil![1].offset[0] + t[1][0] * 4, t[0].not_nil![1].offset[1] * -1 + t[1][1] * -4} },
@@ -150,5 +144,38 @@ module IconRenderer::Renderer
       layers_r.map { |t| t[2] },
       layers_r.map { |t| t[3] }
     )
+  end
+
+  # The main entrypoint for icon rendering; this should be all you need to render out an icon.
+  #
+  # `gamemode` must be one of `cube`, `ship`, `ball`, `ufo`, `wave`, `robot` or `spider`
+  #
+  # Example:
+  # ```
+  # # Load assets
+  # GAME_SHEET_02 = IconRenderer::Assets.load_spritesheet("data/GJ_GameSheet02-uhd.plist")
+  # GAME_SHEET_GLOW = IconRenderer::Assets.load_spritesheet("data/GJ_GameSheetGlow-uhd.plist")
+  # ROBOT_ANIMATIONS = IconRenderer::Assets.load_animations("data/Robot_AnimDesc2.plist")
+  # SPIDER_ANIMATIONS = IconRenderer::Assets.load_animations("data/Spider_AnimDesc2.plist")
+  # # Render out the icon
+  # icon_img = IconRenderer::Renderer.render_icon("ball", 35, [0.0, 0.0, 0.0, 1.0], [255/255, 125/255, 125/255, 1.0], true, GAME_SHEET_02, GAME_SHEET_GLOW)
+  # # Trim it out
+  # alpha = icon_img.extract_band(3)
+  # left, top, width, height = alpha.find_trim(threshold: 0, background: [0])
+  # icon_img = icon_img.crop(left, top, width, height)
+  # # Write it to a file
+  # icon_img.write_to_file("icon_rendered.png")
+  # ```
+  def render_icon(gamemode_str : String, icon : Int32, col1 : Array(Float64), col2 : Array(Float64), glow : Bool, game_sheet_02 : Assets::LoadedSpritesheet, game_sheet_glow : Assets::LoadedSpritesheet, robot_animations : Assets::Animations, spider_animations : Assets::Animations)
+    gamemode = Constants::Gamemodes[gamemode_str]?
+    if !gamemode
+      raise "Invalid gamemode #{gamemode_str}"
+    end
+
+    if gamemode.spicy
+      render_spicy("#{gamemode.prefix}#{icon.to_s.rjust(2, '0')}", col1, col2, glow, game_sheet_02, game_sheet_glow, gamemode_str == "robot" ? robot_animations : spider_animations)
+    else
+      render_normal("#{gamemode.prefix}#{icon.to_s.rjust(2, '0')}", col1, col2, glow, game_sheet_02, game_sheet_glow)
+    end
   end
 end

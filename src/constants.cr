@@ -48,16 +48,16 @@ module IconRenderer::Constants
   ]
 
   # `spicy` = uses 2.0 gamemode render system w/ multiple moving parts
-  record Gamemode, name : String, prefix : String, spicy : Bool
+  record Gamemode, prefix : String, spicy : Bool
 
   # Every gamemode in the game as of 2.1
-  GAMEMODES = [
-    Gamemode.new("cube", "player_"),
-    Gamemode.new("ship", "ship_"),
-    Gamemode.new("ball", "player_ball_"),
-    Gamemode.new("ufo", "bird_"),
-    Gamemode.new("wave", "dart_"),
-    Gamemode.new("robot", "robot_", true),
-    Gamemode.new("spider", "spider_", true),
-  ]
+  Gamemodes = {
+    "player" => Gamemode.new("player_", false),
+    "ship" =>   Gamemode.new("ship_", false),
+    "ball" =>   Gamemode.new("player_ball_", false),
+    "ufo" =>    Gamemode.new("bird_", false),
+    "wave" =>   Gamemode.new("dart_", false),
+    "robot" =>  Gamemode.new("robot_", true),
+    "spider" => Gamemode.new("spider_", true),
+  }
 end
