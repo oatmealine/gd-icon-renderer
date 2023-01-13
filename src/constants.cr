@@ -3,7 +3,7 @@ module IconRenderer::Constants
   # Nabbed from https://github.com/GDColon/GDBrowser/blob/master/iconkit/sacredtexts/colors.json
   # Default colors given to you in vanilla GD
   COLORS = [
-    [125/255, 255/255, 0,       1.0],
+    [125/255, 255/255, 0/255,   1.0],
     [0/255,   255/255, 0/255,   1.0],
     [0/255,   255/255, 125/255, 1.0],
     [0/255,   255/255, 255/255, 1.0],
