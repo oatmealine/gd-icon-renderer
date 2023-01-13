@@ -12,6 +12,7 @@ targets:
 dependencies:
   vips:
     github: naqvis/crystal-vips
+    branch: main
 
 crystal: 1.6.2
 
