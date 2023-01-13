@@ -11,8 +11,7 @@ targets:
 
 dependencies:
   vips:
-    github: oatmealine/crystal-vips
-    branch: composite-typo-fix
+    github: naqvis/crystal-vips
 
 crystal: 1.6.2
 

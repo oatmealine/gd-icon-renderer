@@ -1,6 +1,6 @@
 version: 2.0
 shards:
   vips:
-    git: https://github.com/oatmealine/crystal-vips.git
+    git: https://github.com/naqvis/crystal-vips.git
     version: 0.1.1+git.commit.bc4846f9a62d0f8863e268b1d1f90f55d3171d77
 
