@@ -2,7 +2,7 @@
 module IconRenderer::Assets
   extend self
 
-  # "{1,2}" -> {1, 2}
+  # `"{1,2}"` -> `{1, 2}`
   def parse_vec(str : String) : {Int32, Int32}
     a = str[1..-2].split(",").map { |v| Int32.new(v) }
     {a[0], a[1]}
@@ -12,13 +12,13 @@ module IconRenderer::Assets
     a = str[1..-2].split(",").map { |v| Float32.new(v) }
     {a[0], a[1]}
   end
-
-  # "{{1,2},{3,4}}" -> {{1, 2}, {3, 4}}
+  # `"{{1,2},{3,4}}"` -> `{{1, 2}, {3, 4}}`
   def parse_rect_vecs(str : String) : { {Int32, Int32}, {Int32, Int32} }
     a = str.gsub(/[{}]/, "").split(",").map { |v| Int32.new(v) }
     { {a[0], a[1]}, {a[2], a[3]} }
   end
 
+  # Represents a sprite along with its texture data in a spritesheet.
   class Sprite
     # Whenever rendering the sprite, offset it by this much
     getter offset : {Float32, Float32}
@@ -58,6 +58,7 @@ module IconRenderer::Assets
     end
   end
 
+  # Represents the metadata of a spritesheet and its sprites.
   class Spritesheet
     getter sprites : Hash(String, Sprite)
 
@@ -117,6 +118,7 @@ module IconRenderer::Assets
     Spritesheet.new(plist)
   end
 
+  # Stores both a spritesheet and its associated `Vips::Image` for ease of use.
   record LoadedSpritesheet, sheet : Spritesheet, image : Vips::Image
 
   # Loads the spritesheet and readies the associated image.
