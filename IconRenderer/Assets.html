@@ -56,8 +56,28 @@
       
         <ul>
   
-  <li class=" current" data-id="gd-icon-renderer/IconRenderer/Assets" data-name="iconrenderer::assets">
+  <li class="parent open current" data-id="gd-icon-renderer/IconRenderer/Assets" data-name="iconrenderer::assets">
       <a href="../IconRenderer/Assets.html">Assets</a>
+      
+        <ul>
+  
+  <li class=" " data-id="gd-icon-renderer/IconRenderer/Assets/LoadedSpritesheet" data-name="iconrenderer::assets::loadedspritesheet">
+      <a href="../IconRenderer/Assets/LoadedSpritesheet.html">LoadedSpritesheet</a>
+      
+    </li>
+  
+  <li class=" " data-id="gd-icon-renderer/IconRenderer/Assets/Sprite" data-name="iconrenderer::assets::sprite">
+      <a href="../IconRenderer/Assets/Sprite.html">Sprite</a>
+      
+    </li>
+  
+  <li class=" " data-id="gd-icon-renderer/IconRenderer/Assets/Spritesheet" data-name="iconrenderer::assets::spritesheet">
+      <a href="../IconRenderer/Assets/Spritesheet.html">Spritesheet</a>
+      
+    </li>
+  
+</ul>
+
       
     </li>
   
@@ -166,7 +186,7 @@
   </h2>
   
     
-      <a href="https://github.com/oatmealine/gd-icon-renderer/blob/668901e4a3b81568d7eb61260a77d14d70115d9c/src/assets.cr#L2" target="_blank">
+      <a href="https://github.com/oatmealine/gd-icon-renderer/blob/b9f8c1a6cad9ce054d57e3e4eb1464385316d691/src/assets.cr#L2" target="_blank">
         assets.cr
       </a>
     
@@ -192,16 +212,79 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#load%28path%3AString%2Cassets%3ATuple%28PList%3A%3AValue%2CString%29%29-instance-method" class="signature"><strong>#load</strong>(path : String, assets : Tuple(PList::Value, String))</a>
+        <a href="#get_sprite%28spritesheet%3ASpritesheet%2Cimg%3AVips%3A%3AImage%2Ckey%3AString%29-instance-method" class="signature"><strong>#get_sprite</strong>(spritesheet : Spritesheet, img : Vips::Image, key : String)</a>
         
-          <div class="summary"><p>Load a given asset.</p></div>
+          <div class="summary"><p>Trims out a sprite from an image according to a .plist spritesheet.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#load_plist%28path%3AString%29-instance-method" class="signature"><strong>#load_plist</strong>(path : String)</a>
+        <a href="#get_sprite%28spritesheet%3ALoadedSpritesheet%2Ckey%3AString%29-instance-method" class="signature"><strong>#get_sprite</strong>(spritesheet : LoadedSpritesheet, key : String)</a>
+        
+          <div class="summary"><p>Trims out a sprite from an image according to a .plist spritesheet.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#load_plist%28path%3AString%7CPath%29-instance-method" class="signature"><strong>#load_plist</strong>(path : String | Path)</a>
         
           <div class="summary"><p>Loads a .plist file and parses it.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#load_plist%28io%3AIO%29-instance-method" class="signature"><strong>#load_plist</strong>(io : IO)</a>
+        
+          <div class="summary"><p>Loads a .plist file and parses it.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#load_spritesheet%28path%3APath%29-instance-method" class="signature"><strong>#load_spritesheet</strong>(path : Path)</a>
+        
+          <div class="summary"><p>Loads the spritesheet and readies the associated image.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#load_spritesheet%28path%3AString%29-instance-method" class="signature"><strong>#load_spritesheet</strong>(path : String)</a>
+        
+          <div class="summary"><p>Loads the spritesheet and readies the associated image.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#parse_rect_vecs%28str%3AString%29%3ATuple%28Tuple%28Int32%2CInt32%29%2CTuple%28Int32%2CInt32%29%29-instance-method" class="signature"><strong>#parse_rect_vecs</strong>(str : String) : Tuple(Tuple(Int32, Int32), Tuple(Int32, Int32))</a>
+        
+          <div class="summary"><p>&quot;{{1,2},{3,4}}&quot; -&gt; {{1, 2}, {3, 4}}</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#parse_spritesheet%28path%3AString%7CPath%29-instance-method" class="signature"><strong>#parse_spritesheet</strong>(path : String | Path)</a>
+        
+          <div class="summary"><p>Loads a .plist file and parses it into a spritesheet.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#parse_spritesheet%28io%3AIO%29-instance-method" class="signature"><strong>#parse_spritesheet</strong>(io : IO)</a>
+        
+          <div class="summary"><p>Loads a .plist file and parses it into a spritesheet.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#parse_vec%28str%3AString%29%3ATuple%28Int32%2CInt32%29-instance-method" class="signature"><strong>#parse_vec</strong>(str : String) : Tuple(Int32, Int32)</a>
+        
+          <div class="summary"><p>&quot;{1,2}&quot; -&gt; {1, 2}</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#parse_vec_f%28str%3AString%29%3ATuple%28Float32%2CFloat32%29-instance-method" class="signature"><strong>#parse_vec_f</strong>(str : String) : Tuple(Float32, Float32)</a>
+        
+          <div class="summary"><p><code><a href="../IconRenderer/Assets.html#parse_vec%28str%3AString%29%3ATuple%28Int32%2CInt32%29-instance-method">#parse_vec</a></code>, except for Float32s</p></div>
         
       </li>
     
@@ -229,44 +312,233 @@
     Instance Method Detail
   </h2>
   
-    <div class="entry-detail" id="load(path:String,assets:Tuple(PList::Value,String))-instance-method">
+    <div class="entry-detail" id="get_sprite(spritesheet:Spritesheet,img:Vips::Image,key:String)-instance-method">
       <div class="signature">
         
-        def <strong>load</strong>(path : String, assets : Tuple(<a href="../IconRenderer/PList/Value.html">PList::Value</a>, String))
+        def <strong>get_sprite</strong>(spritesheet : <a href="../IconRenderer/Assets/Spritesheet.html">Spritesheet</a>, img : Vips::Image, key : String)
 
-        <a class="method-permalink" href="#load%28path%3AString%2Cassets%3ATuple%28PList%3A%3AValue%2CString%29%29-instance-method">#</a>
+        <a class="method-permalink" href="#get_sprite%28spritesheet%3ASpritesheet%2Cimg%3AVips%3A%3AImage%2Ckey%3AString%29-instance-method">#</a>
       </div>
       
         <div class="doc">
           
-          <p>Load a given asset. <code>path</code> acts as the name, while <code>assets</code> is a tuple of the parsed .plist file and its name; see <code><a href="../IconRenderer/Assets.html#load_plist%28path%3AString%29-instance-method">#load_plist</a></code>.</p>
+          <p>Trims out a sprite from an image according to a .plist spritesheet.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/668901e4a3b81568d7eb61260a77d14d70115d9c/src/assets.cr#L13" target="_blank">View source</a>]
+          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/b9f8c1a6cad9ce054d57e3e4eb1464385316d691/src/assets.cr#L135" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="load_plist(path:String)-instance-method">
+    <div class="entry-detail" id="get_sprite(spritesheet:LoadedSpritesheet,key:String)-instance-method">
       <div class="signature">
         
-        def <strong>load_plist</strong>(path : String)
+        def <strong>get_sprite</strong>(spritesheet : <a href="../IconRenderer/Assets/LoadedSpritesheet.html">LoadedSpritesheet</a>, key : String)
 
-        <a class="method-permalink" href="#load_plist%28path%3AString%29-instance-method">#</a>
+        <a class="method-permalink" href="#get_sprite%28spritesheet%3ALoadedSpritesheet%2Ckey%3AString%29-instance-method">#</a>
       </div>
       
         <div class="doc">
           
-          <p>Loads a .plist file and parses it. Made as a quick shorthand.</p>
+          <p>Trims out a sprite from an image according to a .plist spritesheet.</p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/668901e4a3b81568d7eb61260a77d14d70115d9c/src/assets.cr#L6" target="_blank">View source</a>]
+          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/b9f8c1a6cad9ce054d57e3e4eb1464385316d691/src/assets.cr#L159" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="load_plist(path:String|Path)-instance-method">
+      <div class="signature">
+        
+        def <strong>load_plist</strong>(path : String | Path)
+
+        <a class="method-permalink" href="#load_plist%28path%3AString%7CPath%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Loads a .plist file and parses it.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/b9f8c1a6cad9ce054d57e3e4eb1464385316d691/src/assets.cr#L94" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="load_plist(io:IO)-instance-method">
+      <div class="signature">
+        
+        def <strong>load_plist</strong>(io : IO)
+
+        <a class="method-permalink" href="#load_plist%28io%3AIO%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Loads a .plist file and parses it.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/b9f8c1a6cad9ce054d57e3e4eb1464385316d691/src/assets.cr#L101" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="load_spritesheet(path:Path)-instance-method">
+      <div class="signature">
+        
+        def <strong>load_spritesheet</strong>(path : Path)
+
+        <a class="method-permalink" href="#load_spritesheet%28path%3APath%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Loads the spritesheet and readies the associated image.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/b9f8c1a6cad9ce054d57e3e4eb1464385316d691/src/assets.cr#L123" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="load_spritesheet(path:String)-instance-method">
+      <div class="signature">
+        
+        def <strong>load_spritesheet</strong>(path : String)
+
+        <a class="method-permalink" href="#load_spritesheet%28path%3AString%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Loads the spritesheet and readies the associated image.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/b9f8c1a6cad9ce054d57e3e4eb1464385316d691/src/assets.cr#L130" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="parse_rect_vecs(str:String):Tuple(Tuple(Int32,Int32),Tuple(Int32,Int32))-instance-method">
+      <div class="signature">
+        
+        def <strong>parse_rect_vecs</strong>(str : String) : Tuple(Tuple(Int32, Int32), Tuple(Int32, Int32))
+
+        <a class="method-permalink" href="#parse_rect_vecs%28str%3AString%29%3ATuple%28Tuple%28Int32%2CInt32%29%2CTuple%28Int32%2CInt32%29%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>&quot;{{1,2},{3,4}}&quot; -&gt; {{1, 2}, {3, 4}}</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/b9f8c1a6cad9ce054d57e3e4eb1464385316d691/src/assets.cr#L17" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="parse_spritesheet(path:String|Path)-instance-method">
+      <div class="signature">
+        
+        def <strong>parse_spritesheet</strong>(path : String | Path)
+
+        <a class="method-permalink" href="#parse_spritesheet%28path%3AString%7CPath%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Loads a .plist file and parses it into a spritesheet.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/b9f8c1a6cad9ce054d57e3e4eb1464385316d691/src/assets.cr#L106" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="parse_spritesheet(io:IO)-instance-method">
+      <div class="signature">
+        
+        def <strong>parse_spritesheet</strong>(io : IO)
+
+        <a class="method-permalink" href="#parse_spritesheet%28io%3AIO%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Loads a .plist file and parses it into a spritesheet.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/b9f8c1a6cad9ce054d57e3e4eb1464385316d691/src/assets.cr#L115" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="parse_vec(str:String):Tuple(Int32,Int32)-instance-method">
+      <div class="signature">
+        
+        def <strong>parse_vec</strong>(str : String) : Tuple(Int32, Int32)
+
+        <a class="method-permalink" href="#parse_vec%28str%3AString%29%3ATuple%28Int32%2CInt32%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>&quot;{1,2}&quot; -&gt; {1, 2}</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/b9f8c1a6cad9ce054d57e3e4eb1464385316d691/src/assets.cr#L6" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="parse_vec_f(str:String):Tuple(Float32,Float32)-instance-method">
+      <div class="signature">
+        
+        def <strong>parse_vec_f</strong>(str : String) : Tuple(Float32, Float32)
+
+        <a class="method-permalink" href="#parse_vec_f%28str%3AString%29%3ATuple%28Float32%2CFloat32%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p><code><a href="../IconRenderer/Assets.html#parse_vec%28str%3AString%29%3ATuple%28Int32%2CInt32%29-instance-method">#parse_vec</a></code>, except for Float32s</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/b9f8c1a6cad9ce054d57e3e4eb1464385316d691/src/assets.cr#L11" target="_blank">View source</a>]
         
       </div>
     </div>

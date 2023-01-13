@@ -13,7 +13,7 @@
 <script type="text/javascript" src="../../js/doc.js"></script>
 
   <meta name="repository-name" content="gd-icon-renderer">
-  <title>IconRenderer::Constants::Gamemode - gd-icon-renderer main</title>
+  <title>IconRenderer::Assets::LoadedSpritesheet - gd-icon-renderer main</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "../../";
   </script>
@@ -56,12 +56,12 @@
       
         <ul>
   
-  <li class="parent " data-id="gd-icon-renderer/IconRenderer/Assets" data-name="iconrenderer::assets">
+  <li class="parent open current" data-id="gd-icon-renderer/IconRenderer/Assets" data-name="iconrenderer::assets">
       <a href="../../IconRenderer/Assets.html">Assets</a>
       
         <ul>
   
-  <li class=" " data-id="gd-icon-renderer/IconRenderer/Assets/LoadedSpritesheet" data-name="iconrenderer::assets::loadedspritesheet">
+  <li class=" current" data-id="gd-icon-renderer/IconRenderer/Assets/LoadedSpritesheet" data-name="iconrenderer::assets::loadedspritesheet">
       <a href="../../IconRenderer/Assets/LoadedSpritesheet.html">LoadedSpritesheet</a>
       
     </li>
@@ -81,12 +81,12 @@
       
     </li>
   
-  <li class="parent open current" data-id="gd-icon-renderer/IconRenderer/Constants" data-name="iconrenderer::constants">
+  <li class="parent " data-id="gd-icon-renderer/IconRenderer/Constants" data-name="iconrenderer::constants">
       <a href="../../IconRenderer/Constants.html">Constants</a>
       
         <ul>
   
-  <li class=" current" data-id="gd-icon-renderer/IconRenderer/Constants/Gamemode" data-name="iconrenderer::constants::gamemode">
+  <li class=" " data-id="gd-icon-renderer/IconRenderer/Constants/Gamemode" data-name="iconrenderer::constants::gamemode">
       <a href="../../IconRenderer/Constants/Gamemode.html">Gamemode</a>
       
     </li>
@@ -130,26 +130,15 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">struct</span> IconRenderer::Constants::Gamemode
+  <span class="kind">struct</span> IconRenderer::Assets::LoadedSpritesheet
 
 </h1>
 
 
-  <ul class="superclass-hierarchy"><li class="superclass"><a href="../../IconRenderer/Constants/Gamemode.html">IconRenderer::Constants::Gamemode</a></li><li class="superclass">Struct</li><li class="superclass">Value</li><li class="superclass">Object</li></ul>
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../../IconRenderer/Assets/LoadedSpritesheet.html">IconRenderer::Assets::LoadedSpritesheet</a></li><li class="superclass">Struct</li><li class="superclass">Value</li><li class="superclass">Object</li></ul>
 
 
 
-
-  <h2>
-    <a id="overview" class="anchor" href="#overview">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Overview
-  </h2>
-
-  <p><code><a href="../../IconRenderer/Constants/Gamemode.html#spicy%3ABool-instance-method">#spicy</a></code> = uses 2.0 gamemode render system w/ multiple moving parts</p>
 
 
 
@@ -174,8 +163,8 @@
   </h2>
   
     
-      <a href="https://github.com/oatmealine/gd-icon-renderer/blob/b9f8c1a6cad9ce054d57e3e4eb1464385316d691/src/constants.cr#L51" target="_blank">
-        constants.cr
+      <a href="https://github.com/oatmealine/gd-icon-renderer/blob/b9f8c1a6cad9ce054d57e3e4eb1464385316d691/src/assets.cr#L120" target="_blank">
+        assets.cr
       </a>
     
     <br/>
@@ -196,7 +185,7 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#new%28name%3AString%2Cprefix%3AString%2Cspicy%3ABool%29-class-method" class="signature"><strong>.new</strong>(name : String, prefix : String, spicy : Bool)</a>
+        <a href="#new%28sheet%3ASpritesheet%2Cimage%3AVips%3A%3AImage%29-class-method" class="signature"><strong>.new</strong>(sheet : Spritesheet, image : Vips::Image)</a>
         
       </li>
     
@@ -222,22 +211,17 @@
       </li>
     
       <li class="entry-summary">
-        <a href="#copy_with%28name_name%3D%40name%2Cprefix_prefix%3D%40prefix%2Cspicy_spicy%3D%40spicy%29-instance-method" class="signature"><strong>#copy_with</strong>(name _name = @name, prefix _prefix = @prefix, spicy _spicy = @spicy)</a>
+        <a href="#copy_with%28sheet_sheet%3D%40sheet%2Cimage_image%3D%40image%29-instance-method" class="signature"><strong>#copy_with</strong>(sheet _sheet = @sheet, image _image = @image)</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#name%3AString-instance-method" class="signature"><strong>#name</strong> : String</a>
+        <a href="#image%3AVips%3A%3AImage-instance-method" class="signature"><strong>#image</strong> : Vips::Image</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#prefix%3AString-instance-method" class="signature"><strong>#prefix</strong> : String</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#spicy%3ABool-instance-method" class="signature"><strong>#spicy</strong> : Bool</a>
+        <a href="#sheet%3ASpritesheet-instance-method" class="signature"><strong>#sheet</strong> : Spritesheet</a>
         
       </li>
     
@@ -291,18 +275,18 @@
     Constructor Detail
   </h2>
   
-    <div class="entry-detail" id="new(name:String,prefix:String,spicy:Bool)-class-method">
+    <div class="entry-detail" id="new(sheet:Spritesheet,image:Vips::Image)-class-method">
       <div class="signature">
         
-        def self.<strong>new</strong>(name : String, prefix : String, spicy : Bool)
+        def self.<strong>new</strong>(sheet : <a href="../../IconRenderer/Assets/Spritesheet.html">Spritesheet</a>, image : Vips::Image)
 
-        <a class="method-permalink" href="#new%28name%3AString%2Cprefix%3AString%2Cspicy%3ABool%29-class-method">#</a>
+        <a class="method-permalink" href="#new%28sheet%3ASpritesheet%2Cimage%3AVips%3A%3AImage%29-class-method">#</a>
       </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/b9f8c1a6cad9ce054d57e3e4eb1464385316d691/src/constants.cr#L51" target="_blank">View source</a>]
+          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/b9f8c1a6cad9ce054d57e3e4eb1464385316d691/src/assets.cr#L120" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -332,47 +316,33 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/b9f8c1a6cad9ce054d57e3e4eb1464385316d691/src/constants.cr#L51" target="_blank">View source</a>]
+          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/b9f8c1a6cad9ce054d57e3e4eb1464385316d691/src/assets.cr#L120" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="copy_with(name_name=@name,prefix_prefix=@prefix,spicy_spicy=@spicy)-instance-method">
+    <div class="entry-detail" id="copy_with(sheet_sheet=@sheet,image_image=@image)-instance-method">
       <div class="signature">
         
-        def <strong>copy_with</strong>(name _name = @name, prefix _prefix = @prefix, spicy _spicy = @spicy)
+        def <strong>copy_with</strong>(sheet _sheet = @sheet, image _image = @image)
 
-        <a class="method-permalink" href="#copy_with%28name_name%3D%40name%2Cprefix_prefix%3D%40prefix%2Cspicy_spicy%3D%40spicy%29-instance-method">#</a>
+        <a class="method-permalink" href="#copy_with%28sheet_sheet%3D%40sheet%2Cimage_image%3D%40image%29-instance-method">#</a>
       </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/b9f8c1a6cad9ce054d57e3e4eb1464385316d691/src/constants.cr#L51" target="_blank">View source</a>]
+          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/b9f8c1a6cad9ce054d57e3e4eb1464385316d691/src/assets.cr#L120" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="name:String-instance-method">
+    <div class="entry-detail" id="image:Vips::Image-instance-method">
       <div class="signature">
         
-        def <strong>name</strong> : String
+        def <strong>image</strong> : Vips::Image
 
-        <a class="method-permalink" href="#name%3AString-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="prefix:String-instance-method">
-      <div class="signature">
-        
-        def <strong>prefix</strong> : String
-
-        <a class="method-permalink" href="#prefix%3AString-instance-method">#</a>
+        <a class="method-permalink" href="#image%3AVips%3A%3AImage-instance-method">#</a>
       </div>
       
       <br/>
@@ -381,12 +351,12 @@
       </div>
     </div>
   
-    <div class="entry-detail" id="spicy:Bool-instance-method">
+    <div class="entry-detail" id="sheet:Spritesheet-instance-method">
       <div class="signature">
         
-        def <strong>spicy</strong> : Bool
+        def <strong>sheet</strong> : <a href="../../IconRenderer/Assets/Spritesheet.html">Spritesheet</a>
 
-        <a class="method-permalink" href="#spicy%3ABool-instance-method">#</a>
+        <a class="method-permalink" href="#sheet%3ASpritesheet-instance-method">#</a>
       </div>
       
       <br/>

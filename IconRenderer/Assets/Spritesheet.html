@@ -13,7 +13,7 @@
 <script type="text/javascript" src="../../js/doc.js"></script>
 
   <meta name="repository-name" content="gd-icon-renderer">
-  <title>IconRenderer::Constants::Gamemode - gd-icon-renderer main</title>
+  <title>IconRenderer::Assets::Spritesheet - gd-icon-renderer main</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "../../";
   </script>
@@ -56,7 +56,7 @@
       
         <ul>
   
-  <li class="parent " data-id="gd-icon-renderer/IconRenderer/Assets" data-name="iconrenderer::assets">
+  <li class="parent open current" data-id="gd-icon-renderer/IconRenderer/Assets" data-name="iconrenderer::assets">
       <a href="../../IconRenderer/Assets.html">Assets</a>
       
         <ul>
@@ -71,7 +71,7 @@
       
     </li>
   
-  <li class=" " data-id="gd-icon-renderer/IconRenderer/Assets/Spritesheet" data-name="iconrenderer::assets::spritesheet">
+  <li class=" current" data-id="gd-icon-renderer/IconRenderer/Assets/Spritesheet" data-name="iconrenderer::assets::spritesheet">
       <a href="../../IconRenderer/Assets/Spritesheet.html">Spritesheet</a>
       
     </li>
@@ -81,12 +81,12 @@
       
     </li>
   
-  <li class="parent open current" data-id="gd-icon-renderer/IconRenderer/Constants" data-name="iconrenderer::constants">
+  <li class="parent " data-id="gd-icon-renderer/IconRenderer/Constants" data-name="iconrenderer::constants">
       <a href="../../IconRenderer/Constants.html">Constants</a>
       
         <ul>
   
-  <li class=" current" data-id="gd-icon-renderer/IconRenderer/Constants/Gamemode" data-name="iconrenderer::constants::gamemode">
+  <li class=" " data-id="gd-icon-renderer/IconRenderer/Constants/Gamemode" data-name="iconrenderer::constants::gamemode">
       <a href="../../IconRenderer/Constants/Gamemode.html">Gamemode</a>
       
     </li>
@@ -130,26 +130,15 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">struct</span> IconRenderer::Constants::Gamemode
+  <span class="kind">class</span> IconRenderer::Assets::Spritesheet
 
 </h1>
 
 
-  <ul class="superclass-hierarchy"><li class="superclass"><a href="../../IconRenderer/Constants/Gamemode.html">IconRenderer::Constants::Gamemode</a></li><li class="superclass">Struct</li><li class="superclass">Value</li><li class="superclass">Object</li></ul>
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../../IconRenderer/Assets/Spritesheet.html">IconRenderer::Assets::Spritesheet</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
 
 
 
-
-  <h2>
-    <a id="overview" class="anchor" href="#overview">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Overview
-  </h2>
-
-  <p><code><a href="../../IconRenderer/Constants/Gamemode.html#spicy%3ABool-instance-method">#spicy</a></code> = uses 2.0 gamemode render system w/ multiple moving parts</p>
 
 
 
@@ -174,8 +163,8 @@
   </h2>
   
     
-      <a href="https://github.com/oatmealine/gd-icon-renderer/blob/b9f8c1a6cad9ce054d57e3e4eb1464385316d691/src/constants.cr#L51" target="_blank">
-        constants.cr
+      <a href="https://github.com/oatmealine/gd-icon-renderer/blob/b9f8c1a6cad9ce054d57e3e4eb1464385316d691/src/assets.cr#L61" target="_blank">
+        assets.cr
       </a>
     
     <br/>
@@ -196,7 +185,14 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#new%28name%3AString%2Cprefix%3AString%2Cspicy%3ABool%29-class-method" class="signature"><strong>.new</strong>(name : String, prefix : String, spicy : Bool)</a>
+        <a href="#new%28sprites%3AHash%28String%2CSprite%29%2Ctexture_file_name%3AString%2Csize%3ATuple%28Int32%2CInt32%29%29-class-method" class="signature"><strong>.new</strong>(sprites : Hash(String, Sprite), texture_file_name : String, size : Tuple(Int32, Int32))</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#new%28obj%3APList%3A%3AValue%29-class-method" class="signature"><strong>.new</strong>(obj : PList::Value)</a>
+        
+          <div class="summary"><p>Shorthand for initializing a spritesheet with its .plist representation.</p></div>
         
       </li>
     
@@ -217,27 +213,17 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#clone-instance-method" class="signature"><strong>#clone</strong></a>
+        <a href="#size%3ATuple%28Int32%2CInt32%29-instance-method" class="signature"><strong>#size</strong> : Tuple(Int32, Int32)</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#copy_with%28name_name%3D%40name%2Cprefix_prefix%3D%40prefix%2Cspicy_spicy%3D%40spicy%29-instance-method" class="signature"><strong>#copy_with</strong>(name _name = @name, prefix _prefix = @prefix, spicy _spicy = @spicy)</a>
+        <a href="#sprites%3AHash%28String%2CSprite%29-instance-method" class="signature"><strong>#sprites</strong> : Hash(String, Sprite)</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#name%3AString-instance-method" class="signature"><strong>#name</strong> : String</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#prefix%3AString-instance-method" class="signature"><strong>#prefix</strong> : String</a>
-        
-      </li>
-    
-      <li class="entry-summary">
-        <a href="#spicy%3ABool-instance-method" class="signature"><strong>#spicy</strong> : Bool</a>
+        <a href="#texture_file_name%3AString-instance-method" class="signature"><strong>#texture_file_name</strong> : String</a>
         
       </li>
     
@@ -248,16 +234,6 @@
 
 
 <div class="methods-inherited">
-  
-    
-
-
-    
-
-
-    
-
-
   
     
 
@@ -291,18 +267,39 @@
     Constructor Detail
   </h2>
   
-    <div class="entry-detail" id="new(name:String,prefix:String,spicy:Bool)-class-method">
+    <div class="entry-detail" id="new(sprites:Hash(String,Sprite),texture_file_name:String,size:Tuple(Int32,Int32))-class-method">
       <div class="signature">
         
-        def self.<strong>new</strong>(name : String, prefix : String, spicy : Bool)
+        def self.<strong>new</strong>(sprites : Hash(String, <a href="../../IconRenderer/Assets/Sprite.html">Sprite</a>), texture_file_name : String, size : Tuple(Int32, Int32))
 
-        <a class="method-permalink" href="#new%28name%3AString%2Cprefix%3AString%2Cspicy%3ABool%29-class-method">#</a>
+        <a class="method-permalink" href="#new%28sprites%3AHash%28String%2CSprite%29%2Ctexture_file_name%3AString%2Csize%3ATuple%28Int32%2CInt32%29%29-class-method">#</a>
       </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/b9f8c1a6cad9ce054d57e3e4eb1464385316d691/src/constants.cr#L51" target="_blank">View source</a>]
+          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/b9f8c1a6cad9ce054d57e3e4eb1464385316d691/src/assets.cr#L67" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="new(obj:PList::Value)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(obj : <a href="../../IconRenderer/PList/Value.html">PList::Value</a>)
+
+        <a class="method-permalink" href="#new%28obj%3APList%3A%3AValue%29-class-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Shorthand for initializing a spritesheet with its .plist representation.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/b9f8c1a6cad9ce054d57e3e4eb1464385316d691/src/assets.cr#L71" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -321,76 +318,50 @@
     Instance Method Detail
   </h2>
   
-    <div class="entry-detail" id="clone-instance-method">
+    <div class="entry-detail" id="size:Tuple(Int32,Int32)-instance-method">
       <div class="signature">
         
-        def <strong>clone</strong>
+        def <strong>size</strong> : Tuple(Int32, Int32)
 
-        <a class="method-permalink" href="#clone-instance-method">#</a>
+        <a class="method-permalink" href="#size%3ATuple%28Int32%2CInt32%29-instance-method">#</a>
       </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/b9f8c1a6cad9ce054d57e3e4eb1464385316d691/src/constants.cr#L51" target="_blank">View source</a>]
+          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/b9f8c1a6cad9ce054d57e3e4eb1464385316d691/src/assets.cr#L65" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="copy_with(name_name=@name,prefix_prefix=@prefix,spicy_spicy=@spicy)-instance-method">
+    <div class="entry-detail" id="sprites:Hash(String,Sprite)-instance-method">
       <div class="signature">
         
-        def <strong>copy_with</strong>(name _name = @name, prefix _prefix = @prefix, spicy _spicy = @spicy)
+        def <strong>sprites</strong> : Hash(String, <a href="../../IconRenderer/Assets/Sprite.html">Sprite</a>)
 
-        <a class="method-permalink" href="#copy_with%28name_name%3D%40name%2Cprefix_prefix%3D%40prefix%2Cspicy_spicy%3D%40spicy%29-instance-method">#</a>
+        <a class="method-permalink" href="#sprites%3AHash%28String%2CSprite%29-instance-method">#</a>
       </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/b9f8c1a6cad9ce054d57e3e4eb1464385316d691/src/constants.cr#L51" target="_blank">View source</a>]
+          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/b9f8c1a6cad9ce054d57e3e4eb1464385316d691/src/assets.cr#L62" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="name:String-instance-method">
+    <div class="entry-detail" id="texture_file_name:String-instance-method">
       <div class="signature">
         
-        def <strong>name</strong> : String
+        def <strong>texture_file_name</strong> : String
 
-        <a class="method-permalink" href="#name%3AString-instance-method">#</a>
+        <a class="method-permalink" href="#texture_file_name%3AString-instance-method">#</a>
       </div>
       
       <br/>
       <div>
         
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="prefix:String-instance-method">
-      <div class="signature">
-        
-        def <strong>prefix</strong> : String
-
-        <a class="method-permalink" href="#prefix%3AString-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-      </div>
-    </div>
-  
-    <div class="entry-detail" id="spicy:Bool-instance-method">
-      <div class="signature">
-        
-        def <strong>spicy</strong> : Bool
-
-        <a class="method-permalink" href="#spicy%3ABool-instance-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
+          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/b9f8c1a6cad9ce054d57e3e4eb1464385316d691/src/assets.cr#L64" target="_blank">View source</a>]
         
       </div>
     </div>

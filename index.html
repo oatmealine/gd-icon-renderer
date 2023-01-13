@@ -56,8 +56,28 @@
       
         <ul>
   
-  <li class=" " data-id="gd-icon-renderer/IconRenderer/Assets" data-name="iconrenderer::assets">
+  <li class="parent " data-id="gd-icon-renderer/IconRenderer/Assets" data-name="iconrenderer::assets">
       <a href="IconRenderer/Assets.html">Assets</a>
+      
+        <ul>
+  
+  <li class=" " data-id="gd-icon-renderer/IconRenderer/Assets/LoadedSpritesheet" data-name="iconrenderer::assets::loadedspritesheet">
+      <a href="IconRenderer/Assets/LoadedSpritesheet.html">LoadedSpritesheet</a>
+      
+    </li>
+  
+  <li class=" " data-id="gd-icon-renderer/IconRenderer/Assets/Sprite" data-name="iconrenderer::assets::sprite">
+      <a href="IconRenderer/Assets/Sprite.html">Sprite</a>
+      
+    </li>
+  
+  <li class=" " data-id="gd-icon-renderer/IconRenderer/Assets/Spritesheet" data-name="iconrenderer::assets::spritesheet">
+      <a href="IconRenderer/Assets/Spritesheet.html">Spritesheet</a>
+      
+    </li>
+  
+</ul>
+
       
     </li>
   
@@ -112,7 +132,8 @@
     <use href="#octicon-link"/>
   </svg>
 </a>gd-icon-renderer</h1>
-<p><a href="https://oatmealine.github.io/gd-icon-renderer/"><img src="https://img.shields.io/badge/docs-available-brightgreen.svg" alt="Docs" /></a></p>
+<p><a href="https://github.com/oatmealine/gd-icon-renderer/actions/workflows/ci.yml"><img src="https://github.com/oatmealine/gd-icon-renderer/actions/workflows/ci.yml/badge.svg" alt="gd-icon-renderer CI" /></a>
+<a href="https://oatmealine.github.io/gd-icon-renderer/"><img src="https://img.shields.io/badge/docs-available-brightgreen.svg" alt="Docs" /></a></p>
 <p>A (WIP) Crystal Geometry Dash icon renderer library, utilizing <a href="https://www.libvips.org/">libvips</a></p>
 <h2><a id="why" class="anchor" href="#why">
   <svg class="octicon-link" aria-hidden="true">
@@ -147,8 +168,30 @@
     <use href="#octicon-link"/>
   </svg>
 </a>Usage</h2>
-<p>The library is in its infancy stages; you'll be offered very little support in getting this to work in an actual application.</p>
-<p>Currently, for all examples under <code>examples/</code>, you'll have to plug an <a href="https://gdcolon.com/gdsplitter/">extracted spritesheet</a> of <code>GJ_GameSheet02-uhd</code> and <code>GJ_GameSheetGlow-uhd</code> along with their <code>plist</code> files in <code>data/</code>.</p>
+<p>Currently, for most examples under <code>examples/</code>, you'll have to plug <code>GJ_GameSheet02-uhd</code> and <code>GJ_GameSheetGlow-uhd</code> along with their <code>plist</code> files in <code>data/</code>. Otherwise, the process for rendering an icon is as follows:</p>
+<ol>
+<li>
+<p>Load spritesheets:</p>
+<pre><code class="language-crystal"><span class="c"># Replace the filepaths here with whatever is relevant for your usecase</span>
+<span class="t">GAME_SHEET_02</span> <span class="o">=</span> <span class="t">IconRenderer</span><span class="t">::</span><span class="t">Assets</span>.load_spritesheet(<span class="s">&quot;data/GJ_GameSheet02-uhd.plist&quot;</span>)
+<span class="t">GAME_SHEET_GLOW</span> <span class="o">=</span> <span class="t">IconRenderer</span><span class="t">::</span><span class="t">Assets</span>.load_spritesheet(<span class="s">&quot;data/GJ_GameSheetGlow-uhd.plist&quot;</span>)</code></pre>
+</li>
+<li>
+<p>Render the icon out:</p>
+<pre><code class="language-crystal">icon_img <span class="o">=</span> <span class="t">IconRenderer</span><span class="t">::</span><span class="t">Renderer</span>.render_icon(<span class="s">&quot;ship_44&quot;</span>, [<span class="n">0.0</span>, <span class="n">0.0</span>, <span class="n">0.0</span>, <span class="n">1.0</span>], [<span class="n">255</span><span class="o">/</span><span class="n">255</span>, <span class="n">125</span><span class="o">/</span><span class="n">255</span>, <span class="n">125</span><span class="o">/</span><span class="n">255</span>, <span class="n">1.0</span>], <span class="n">true</span>, <span class="t">GAME_SHEET_02</span>, <span class="t">GAME_SHEET_GLOW</span>)</code></pre>
+<p>You'll now be given a <a href="https://naqvis.github.io/crystal-vips/Vips/Image.html"><code>Vips::Image</code></a>.</p>
+</li>
+<li>
+<p>(Optional) You might find it useful to now trim the whitespace out, as Geometry Dash icons usually have lots of surrounding blank space:</p>
+<pre><code class="language-crystal">alpha <span class="o">=</span> icon_img.extract_band(<span class="n">3</span>)
+left, top, width, height <span class="o">=</span> alpha.find_trim(threshold: <span class="n">0</span>, background: [<span class="n">0</span>])
+icon_img <span class="o">=</span> icon_img.crop(left, top, width, height)</code></pre>
+</li>
+<li>
+<p>You'll most likely want to save the resulting image somewhere:</p>
+<pre><code class="language-crystal">icon_img.write_to_file(<span class="s">&quot;icon_rendered.png&quot;</span>)</code></pre>
+</li>
+</ol>
 </div>
 </body>
 </html>
