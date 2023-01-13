@@ -61,6 +61,16 @@
       
         <ul>
   
+  <li class=" " data-id="gd-icon-renderer/IconRenderer/Assets/Animations" data-name="iconrenderer::assets::animations">
+      <a href="../IconRenderer/Assets/Animations.html">Animations</a>
+      
+    </li>
+  
+  <li class=" " data-id="gd-icon-renderer/IconRenderer/Assets/AnimationSprite" data-name="iconrenderer::assets::animationsprite">
+      <a href="../IconRenderer/Assets/AnimationSprite.html">AnimationSprite</a>
+      
+    </li>
+  
   <li class=" " data-id="gd-icon-renderer/IconRenderer/Assets/LoadedSpritesheet" data-name="iconrenderer::assets::loadedspritesheet">
       <a href="../IconRenderer/Assets/LoadedSpritesheet.html">LoadedSpritesheet</a>
       
@@ -186,7 +196,7 @@
   </h2>
   
     
-      <a href="https://github.com/oatmealine/gd-icon-renderer/blob/b9f8c1a6cad9ce054d57e3e4eb1464385316d691/src/assets.cr#L2" target="_blank">
+      <a href="https://github.com/oatmealine/gd-icon-renderer/blob/d7318bfc82ac92f79cfc67cb6c5d30e9f08a918a/src/assets.cr#L2" target="_blank">
         assets.cr
       </a>
     
@@ -226,6 +236,18 @@
       </li>
     
       <li class="entry-summary">
+        <a href="#load_animations%28io%3AIO%29-instance-method" class="signature"><strong>#load_animations</strong>(io : IO)</a>
+        
+          <div class="summary"><p>Load an animations plist file.</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#load_animations%28path%3APath%7CString%29-instance-method" class="signature"><strong>#load_animations</strong>(path : Path | String)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
         <a href="#load_plist%28path%3AString%7CPath%29-instance-method" class="signature"><strong>#load_plist</strong>(path : String | Path)</a>
         
           <div class="summary"><p>Loads a .plist file and parses it.</p></div>
@@ -256,7 +278,7 @@
       <li class="entry-summary">
         <a href="#parse_rect_vecs%28str%3AString%29%3ATuple%28Tuple%28Int32%2CInt32%29%2CTuple%28Int32%2CInt32%29%29-instance-method" class="signature"><strong>#parse_rect_vecs</strong>(str : String) : Tuple(Tuple(Int32, Int32), Tuple(Int32, Int32))</a>
         
-          <div class="summary"><p>&quot;{{1,2},{3,4}}&quot; -&gt; {{1, 2}, {3, 4}}</p></div>
+          <div class="summary"><p><code>&quot;{{1,2},{3,4}}&quot;</code> -&gt; <code>{{1, 2}, {3, 4}}</code></p></div>
         
       </li>
     
@@ -277,7 +299,7 @@
       <li class="entry-summary">
         <a href="#parse_vec%28str%3AString%29%3ATuple%28Int32%2CInt32%29-instance-method" class="signature"><strong>#parse_vec</strong>(str : String) : Tuple(Int32, Int32)</a>
         
-          <div class="summary"><p>&quot;{1,2}&quot; -&gt; {1, 2}</p></div>
+          <div class="summary"><p><code>&quot;{1,2}&quot;</code> -&gt; <code>{1, 2}</code></p></div>
         
       </li>
     
@@ -328,7 +350,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/b9f8c1a6cad9ce054d57e3e4eb1464385316d691/src/assets.cr#L135" target="_blank">View source</a>]
+          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/d7318bfc82ac92f79cfc67cb6c5d30e9f08a918a/src/assets.cr#L192" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -349,7 +371,44 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/b9f8c1a6cad9ce054d57e3e4eb1464385316d691/src/assets.cr#L159" target="_blank">View source</a>]
+          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/d7318bfc82ac92f79cfc67cb6c5d30e9f08a918a/src/assets.cr#L216" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="load_animations(io:IO)-instance-method">
+      <div class="signature">
+        
+        def <strong>load_animations</strong>(io : IO)
+
+        <a class="method-permalink" href="#load_animations%28io%3AIO%29-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Load an animations plist file.</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/d7318bfc82ac92f79cfc67cb6c5d30e9f08a918a/src/assets.cr#L176" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="load_animations(path:Path|String)-instance-method">
+      <div class="signature">
+        
+        def <strong>load_animations</strong>(path : Path | String)
+
+        <a class="method-permalink" href="#load_animations%28path%3APath%7CString%29-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/d7318bfc82ac92f79cfc67cb6c5d30e9f08a918a/src/assets.cr#L187" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -370,7 +429,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/b9f8c1a6cad9ce054d57e3e4eb1464385316d691/src/assets.cr#L94" target="_blank">View source</a>]
+          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/d7318bfc82ac92f79cfc67cb6c5d30e9f08a918a/src/assets.cr#L95" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -391,7 +450,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/b9f8c1a6cad9ce054d57e3e4eb1464385316d691/src/assets.cr#L101" target="_blank">View source</a>]
+          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/d7318bfc82ac92f79cfc67cb6c5d30e9f08a918a/src/assets.cr#L102" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -412,7 +471,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/b9f8c1a6cad9ce054d57e3e4eb1464385316d691/src/assets.cr#L123" target="_blank">View source</a>]
+          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/d7318bfc82ac92f79cfc67cb6c5d30e9f08a918a/src/assets.cr#L125" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -433,7 +492,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/b9f8c1a6cad9ce054d57e3e4eb1464385316d691/src/assets.cr#L130" target="_blank">View source</a>]
+          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/d7318bfc82ac92f79cfc67cb6c5d30e9f08a918a/src/assets.cr#L132" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -448,13 +507,13 @@
       
         <div class="doc">
           
-          <p>&quot;{{1,2},{3,4}}&quot; -&gt; {{1, 2}, {3, 4}}</p>
+          <p><code>&quot;{{1,2},{3,4}}&quot;</code> -&gt; <code>{{1, 2}, {3, 4}}</code></p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/b9f8c1a6cad9ce054d57e3e4eb1464385316d691/src/assets.cr#L17" target="_blank">View source</a>]
+          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/d7318bfc82ac92f79cfc67cb6c5d30e9f08a918a/src/assets.cr#L16" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -475,7 +534,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/b9f8c1a6cad9ce054d57e3e4eb1464385316d691/src/assets.cr#L106" target="_blank">View source</a>]
+          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/d7318bfc82ac92f79cfc67cb6c5d30e9f08a918a/src/assets.cr#L107" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -496,7 +555,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/b9f8c1a6cad9ce054d57e3e4eb1464385316d691/src/assets.cr#L115" target="_blank">View source</a>]
+          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/d7318bfc82ac92f79cfc67cb6c5d30e9f08a918a/src/assets.cr#L116" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -511,13 +570,13 @@
       
         <div class="doc">
           
-          <p>&quot;{1,2}&quot; -&gt; {1, 2}</p>
+          <p><code>&quot;{1,2}&quot;</code> -&gt; <code>{1, 2}</code></p>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/b9f8c1a6cad9ce054d57e3e4eb1464385316d691/src/assets.cr#L6" target="_blank">View source</a>]
+          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/d7318bfc82ac92f79cfc67cb6c5d30e9f08a918a/src/assets.cr#L6" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -538,7 +597,7 @@
       <br/>
       <div>
         
-          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/b9f8c1a6cad9ce054d57e3e4eb1464385316d691/src/assets.cr#L11" target="_blank">View source</a>]
+          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/d7318bfc82ac92f79cfc67cb6c5d30e9f08a918a/src/assets.cr#L11" target="_blank">View source</a>]
         
       </div>
     </div>

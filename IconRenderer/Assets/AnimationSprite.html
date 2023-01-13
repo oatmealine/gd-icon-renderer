@@ -13,7 +13,7 @@
 <script type="text/javascript" src="../../js/doc.js"></script>
 
   <meta name="repository-name" content="gd-icon-renderer">
-  <title>IconRenderer::Assets::LoadedSpritesheet - gd-icon-renderer main</title>
+  <title>IconRenderer::Assets::AnimationSprite - gd-icon-renderer main</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "../../";
   </script>
@@ -66,12 +66,12 @@
       
     </li>
   
-  <li class=" " data-id="gd-icon-renderer/IconRenderer/Assets/AnimationSprite" data-name="iconrenderer::assets::animationsprite">
+  <li class=" current" data-id="gd-icon-renderer/IconRenderer/Assets/AnimationSprite" data-name="iconrenderer::assets::animationsprite">
       <a href="../../IconRenderer/Assets/AnimationSprite.html">AnimationSprite</a>
       
     </li>
   
-  <li class=" current" data-id="gd-icon-renderer/IconRenderer/Assets/LoadedSpritesheet" data-name="iconrenderer::assets::loadedspritesheet">
+  <li class=" " data-id="gd-icon-renderer/IconRenderer/Assets/LoadedSpritesheet" data-name="iconrenderer::assets::loadedspritesheet">
       <a href="../../IconRenderer/Assets/LoadedSpritesheet.html">LoadedSpritesheet</a>
       
     </li>
@@ -140,12 +140,12 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">struct</span> IconRenderer::Assets::LoadedSpritesheet
+  <span class="kind">class</span> IconRenderer::Assets::AnimationSprite
 
 </h1>
 
 
-  <ul class="superclass-hierarchy"><li class="superclass"><a href="../../IconRenderer/Assets/LoadedSpritesheet.html">IconRenderer::Assets::LoadedSpritesheet</a></li><li class="superclass">Struct</li><li class="superclass">Value</li><li class="superclass">Object</li></ul>
+  <ul class="superclass-hierarchy"><li class="superclass"><a href="../../IconRenderer/Assets/AnimationSprite.html">IconRenderer::Assets::AnimationSprite</a></li><li class="superclass">Reference</li><li class="superclass">Object</li></ul>
 
 
 
@@ -159,7 +159,7 @@
     Overview
   </h2>
 
-  <p>Stores both a spritesheet and its associated <code>Vips::Image</code> for ease of use.</p>
+  <p>Represents the metadata of an animation frame's sprite</p>
 
 
 
@@ -184,7 +184,7 @@
   </h2>
   
     
-      <a href="https://github.com/oatmealine/gd-icon-renderer/blob/d7318bfc82ac92f79cfc67cb6c5d30e9f08a918a/src/assets.cr#L122" target="_blank">
+      <a href="https://github.com/oatmealine/gd-icon-renderer/blob/d7318bfc82ac92f79cfc67cb6c5d30e9f08a918a/src/assets.cr#L137" target="_blank">
         assets.cr
       </a>
     
@@ -206,7 +206,12 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#new%28sheet%3ASpritesheet%2Cimage%3AVips%3A%3AImage%29-class-method" class="signature"><strong>.new</strong>(sheet : Spritesheet, image : Vips::Image)</a>
+        <a href="#new%28texture%3AString%2Cposition%3ATuple%28Float32%2CFloat32%29%2Cscale%3ATuple%28Float32%2CFloat32%29%2Crotation%3AFloat64%2Cflipped%3ATuple%28Int32%2CInt32%29%2Cz%3AInt32%29-class-method" class="signature"><strong>.new</strong>(texture : String, position : Tuple(Float32, Float32), scale : Tuple(Float32, Float32), rotation : Float64, flipped : Tuple(Int32, Int32), z : Int32)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#new%28obj%3APList%3A%3AValue%29-class-method" class="signature"><strong>.new</strong>(obj : PList::Value)</a>
         
       </li>
     
@@ -227,22 +232,32 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#clone-instance-method" class="signature"><strong>#clone</strong></a>
+        <a href="#flipped%3ATuple%28Bool%2CBool%29-instance-method" class="signature"><strong>#flipped</strong> : Tuple(Bool, Bool)</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#copy_with%28sheet_sheet%3D%40sheet%2Cimage_image%3D%40image%29-instance-method" class="signature"><strong>#copy_with</strong>(sheet _sheet = @sheet, image _image = @image)</a>
+        <a href="#position%3ATuple%28Float32%2CFloat32%29-instance-method" class="signature"><strong>#position</strong> : Tuple(Float32, Float32)</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#image%3AVips%3A%3AImage-instance-method" class="signature"><strong>#image</strong> : Vips::Image</a>
+        <a href="#rotation%3AFloat64-instance-method" class="signature"><strong>#rotation</strong> : Float64</a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#sheet%3ASpritesheet-instance-method" class="signature"><strong>#sheet</strong> : Spritesheet</a>
+        <a href="#scale%3ATuple%28Float32%2CFloat32%29-instance-method" class="signature"><strong>#scale</strong> : Tuple(Float32, Float32)</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#texture%3AString-instance-method" class="signature"><strong>#texture</strong> : String</a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#z%3AInt32-instance-method" class="signature"><strong>#z</strong> : Int32</a>
         
       </li>
     
@@ -253,16 +268,6 @@
 
 
 <div class="methods-inherited">
-  
-    
-
-
-    
-
-
-    
-
-
   
     
 
@@ -296,18 +301,34 @@
     Constructor Detail
   </h2>
   
-    <div class="entry-detail" id="new(sheet:Spritesheet,image:Vips::Image)-class-method">
+    <div class="entry-detail" id="new(texture:String,position:Tuple(Float32,Float32),scale:Tuple(Float32,Float32),rotation:Float64,flipped:Tuple(Int32,Int32),z:Int32)-class-method">
       <div class="signature">
         
-        def self.<strong>new</strong>(sheet : <a href="../../IconRenderer/Assets/Spritesheet.html">Spritesheet</a>, image : Vips::Image)
+        def self.<strong>new</strong>(texture : String, position : Tuple(Float32, Float32), scale : Tuple(Float32, Float32), rotation : Float64, flipped : Tuple(Int32, Int32), z : Int32)
 
-        <a class="method-permalink" href="#new%28sheet%3ASpritesheet%2Cimage%3AVips%3A%3AImage%29-class-method">#</a>
+        <a class="method-permalink" href="#new%28texture%3AString%2Cposition%3ATuple%28Float32%2CFloat32%29%2Cscale%3ATuple%28Float32%2CFloat32%29%2Crotation%3AFloat64%2Cflipped%3ATuple%28Int32%2CInt32%29%2Cz%3AInt32%29-class-method">#</a>
       </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/d7318bfc82ac92f79cfc67cb6c5d30e9f08a918a/src/assets.cr#L122" target="_blank">View source</a>]
+          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/d7318bfc82ac92f79cfc67cb6c5d30e9f08a918a/src/assets.cr#L145" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="new(obj:PList::Value)-class-method">
+      <div class="signature">
+        
+        def self.<strong>new</strong>(obj : <a href="../../IconRenderer/PList/Value.html">PList::Value</a>)
+
+        <a class="method-permalink" href="#new%28obj%3APList%3A%3AValue%29-class-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/d7318bfc82ac92f79cfc67cb6c5d30e9f08a918a/src/assets.cr#L148" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -326,62 +347,98 @@
     Instance Method Detail
   </h2>
   
-    <div class="entry-detail" id="clone-instance-method">
+    <div class="entry-detail" id="flipped:Tuple(Bool,Bool)-instance-method">
       <div class="signature">
         
-        def <strong>clone</strong>
+        def <strong>flipped</strong> : Tuple(Bool, Bool)
 
-        <a class="method-permalink" href="#clone-instance-method">#</a>
+        <a class="method-permalink" href="#flipped%3ATuple%28Bool%2CBool%29-instance-method">#</a>
       </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/d7318bfc82ac92f79cfc67cb6c5d30e9f08a918a/src/assets.cr#L122" target="_blank">View source</a>]
+          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/d7318bfc82ac92f79cfc67cb6c5d30e9f08a918a/src/assets.cr#L142" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="copy_with(sheet_sheet=@sheet,image_image=@image)-instance-method">
+    <div class="entry-detail" id="position:Tuple(Float32,Float32)-instance-method">
       <div class="signature">
         
-        def <strong>copy_with</strong>(sheet _sheet = @sheet, image _image = @image)
+        def <strong>position</strong> : Tuple(Float32, Float32)
 
-        <a class="method-permalink" href="#copy_with%28sheet_sheet%3D%40sheet%2Cimage_image%3D%40image%29-instance-method">#</a>
+        <a class="method-permalink" href="#position%3ATuple%28Float32%2CFloat32%29-instance-method">#</a>
       </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/d7318bfc82ac92f79cfc67cb6c5d30e9f08a918a/src/assets.cr#L122" target="_blank">View source</a>]
+          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/d7318bfc82ac92f79cfc67cb6c5d30e9f08a918a/src/assets.cr#L139" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="image:Vips::Image-instance-method">
+    <div class="entry-detail" id="rotation:Float64-instance-method">
       <div class="signature">
         
-        def <strong>image</strong> : Vips::Image
+        def <strong>rotation</strong> : Float64
 
-        <a class="method-permalink" href="#image%3AVips%3A%3AImage-instance-method">#</a>
+        <a class="method-permalink" href="#rotation%3AFloat64-instance-method">#</a>
       </div>
       
       <br/>
       <div>
+        
+          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/d7318bfc82ac92f79cfc67cb6c5d30e9f08a918a/src/assets.cr#L141" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="sheet:Spritesheet-instance-method">
+    <div class="entry-detail" id="scale:Tuple(Float32,Float32)-instance-method">
       <div class="signature">
         
-        def <strong>sheet</strong> : <a href="../../IconRenderer/Assets/Spritesheet.html">Spritesheet</a>
+        def <strong>scale</strong> : Tuple(Float32, Float32)
 
-        <a class="method-permalink" href="#sheet%3ASpritesheet-instance-method">#</a>
+        <a class="method-permalink" href="#scale%3ATuple%28Float32%2CFloat32%29-instance-method">#</a>
       </div>
       
       <br/>
       <div>
+        
+          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/d7318bfc82ac92f79cfc67cb6c5d30e9f08a918a/src/assets.cr#L140" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="texture:String-instance-method">
+      <div class="signature">
+        
+        def <strong>texture</strong> : String
+
+        <a class="method-permalink" href="#texture%3AString-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/d7318bfc82ac92f79cfc67cb6c5d30e9f08a918a/src/assets.cr#L138" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="z:Int32-instance-method">
+      <div class="signature">
+        
+        def <strong>z</strong> : Int32
+
+        <a class="method-permalink" href="#z%3AInt32-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/d7318bfc82ac92f79cfc67cb6c5d30e9f08a918a/src/assets.cr#L143" target="_blank">View source</a>]
         
       </div>
     </div>
