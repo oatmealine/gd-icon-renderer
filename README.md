@@ -27,6 +27,33 @@ You'll need to install [libvips](https://www.libvips.org/install.html), alongsid
 
 ## Usage
 
-The library is in its infancy stages; you'll be offered very little support in getting this to work in an actual application.
+Currently, for most examples under `examples/`, you'll have to plug `GJ_GameSheet02-uhd` and `GJ_GameSheetGlow-uhd` along with their `plist` files in `data/`. Otherwise, the process for rendering an icon is as follows:
 
-Currently, for all examples under `examples/`, you'll have to plug an [extracted spritesheet](https://gdcolon.com/gdsplitter/) of `GJ_GameSheet02-uhd` and `GJ_GameSheetGlow-uhd` along with their `plist` files in `data/`.
+1. Load spritesheets:
+
+    ```crystal
+    # Replace the filepaths here with whatever is relevant for your usecase
+    GAME_SHEET_02 = IconRenderer::Assets.load_spritesheet("data/GJ_GameSheet02-uhd.plist")
+    GAME_SHEET_GLOW = IconRenderer::Assets.load_spritesheet("data/GJ_GameSheetGlow-uhd.plist")
+    ```
+
+2. Render the icon out:
+
+    ```crystal
+    icon_img = IconRenderer::Renderer.render_icon("ship_44", [0.0, 0.0, 0.0, 1.0], [255/255, 125/255, 125/255, 1.0], true, GAME_SHEET_02, GAME_SHEET_GLOW)
+    ```
+
+    You'll now be given a [`Vips::Image`](https://naqvis.github.io/crystal-vips/Vips/Image.html).
+
+3. (Optional) You might find it useful to now trim the whitespace out, as Geometry Dash icons usually have lots of surrounding blank space:
+
+    ```crystal
+    alpha = icon_img.extract_band(3)
+    left, top, width, height = alpha.find_trim(threshold: 0, background: [0])
+    icon_img = icon_img.crop(left, top, width, height)
+    ```
+
+4. You'll most likely want to save the resulting image somewhere:
+    ```crystal
+    icon_img.write_to_file("icon_rendered.png")
+    ```

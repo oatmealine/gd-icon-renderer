@@ -2,12 +2,6 @@
 module IconRenderer::Renderer
   extend self
 
-  # "{1,2}" -> {1, 2}
-  private def parse_vec(str : String)
-    a = str[1..-2].split(",").map { |v| Int32.new(v) }
-    {a[0], a[1]}
-  end
-
   # Mainly for internal use; given an array of images, their sizes and colors, tints and composits them over each other.
   def render_layered(images : Array(Vips::Image), sizes : Array(Tuple(Int32, Int32)), colors : Array(Array(Float64)?))
     bounding_box = sizes.reduce { |p1, p2| {Math.max(p1[0], p2[0]), Math.max(p1[1], p2[1])} }
@@ -34,8 +28,8 @@ module IconRenderer::Renderer
   # Example:
   # ```
   # # Load assets
-  # GAME_SHEET_02 = {Assets.load_plist("data/GJ_GameSheet02-uhd.plist"), "data/GJ_GameSheet02-uhd"}
-  # GAME_SHEET_GLOW = {Assets.load_plist("data/GJ_GameSheetGlow-uhd.plist"), "data/GJ_GameSheetGlow-uhd"}
+  # GAME_SHEET_02 = IconRenderer::Assets.load_spritesheet("data/GJ_GameSheet02-uhd.plist")
+  # GAME_SHEET_GLOW = IconRenderer::Assets.load_spritesheet("data/GJ_GameSheetGlow-uhd.plist")
   # # Render out the icon
   # icon_img = IconRenderer::Renderer.render_icon("ship_44", [0.0, 0.0, 0.0, 1.0], [255/255, 125/255, 125/255, 1.0], true, GAME_SHEET_02, GAME_SHEET_GLOW)
   # # Trim it out
@@ -45,15 +39,15 @@ module IconRenderer::Renderer
   # # Write it to a file
   # icon_img.write_to_file("icon_rendered.png")
   # ```
-  def render_icon(filename : String, col1 : Array(Float64), col2 : Array(Float64), glow : Bool, game_sheet_02 : Tuple(PList::Value, String), game_sheet_glow : Tuple(PList::Value, String))
+  def render_icon(basename : String, col1 : Array(Float64), col2 : Array(Float64), glow : Bool, game_sheet_02 : Assets::LoadedSpritesheet, game_sheet_glow : Assets::LoadedSpritesheet)
     glow_col = is_black(col2) ? (is_black(col1) ? [1.0, 1.0, 1.0, 1.0] : col1) : col2
 
     layers = [
-      (glow || (is_black(col1) && is_black(col2))) ? Assets.load("#{filename}_glow_001.png", game_sheet_glow) : nil,
-      Assets.load("#{filename}_2_001.png", game_sheet_02),
-      Assets.load("#{filename}_3_001.png", game_sheet_02),
-      Assets.load("#{filename}_001.png", game_sheet_02),
-      Assets.load("#{filename}_extra_001.png", game_sheet_02),
+      (glow || (is_black(col1) && is_black(col2))) ? Assets.get_sprite(game_sheet_glow, "#{basename}_glow_001.png") : nil,
+      Assets.get_sprite(game_sheet_02, "#{basename}_2_001.png"),
+      Assets.get_sprite(game_sheet_02, "#{basename}_3_001.png"),
+      Assets.get_sprite(game_sheet_02, "#{basename}_001.png"),
+      Assets.get_sprite(game_sheet_02, "#{basename}_extra_001.png"),
     ]
 
     colors = [glow_col, col2, nil, col1, nil]
@@ -61,7 +55,7 @@ module IconRenderer::Renderer
     i = -1
     render_layered(
       layers.select { |v| v != nil }.map { |t| t.not_nil![0] },
-      layers.select { |v| v != nil }.map { |t| parse_vec(t.not_nil![1].not_nil!["spriteSourceSize"].as(String)) },
+      layers.select { |v| v != nil }.map { |t| t.not_nil![1].source_size },
       colors.select { |v| layers[(i += 1)]? }
     )
   end

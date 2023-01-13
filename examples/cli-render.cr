@@ -7,8 +7,8 @@ require "../src/gd-icon-renderer.cr"
 
 include IconRenderer
 
-GAME_SHEET_02 = {Assets.load_plist("data/GJ_GameSheet02-uhd.plist"), "data/GJ_GameSheet02-uhd"}
-GAME_SHEET_GLOW = {Assets.load_plist("data/GJ_GameSheetGlow-uhd.plist"), "data/GJ_GameSheetGlow-uhd"}
+GAME_SHEET_02 = Assets.load_spritesheet("data/GJ_GameSheet02-uhd.plist")
+GAME_SHEET_GLOW = Assets.load_spritesheet("data/GJ_GameSheetGlow-uhd.plist")
 
 icon_name = nil
 output = "icon.png"
