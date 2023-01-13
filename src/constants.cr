@@ -52,7 +52,7 @@ module IconRenderer::Constants
 
   # Every gamemode in the game as of 2.1
   Gamemodes = {
-    "player" => Gamemode.new("player_", false),
+    "cube" =>   Gamemode.new("player_", false),
     "ship" =>   Gamemode.new("ship_", false),
     "ball" =>   Gamemode.new("player_ball_", false),
     "ufo" =>    Gamemode.new("bird_", false),
