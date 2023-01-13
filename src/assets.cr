@@ -133,6 +133,61 @@ module IconRenderer::Assets
     load_spritesheet(Path.new(path))
   end
 
+  # Represents the metadata of an animation frame's sprite
+  class AnimationSprite
+    getter texture : String
+    getter position : {Float32, Float32}
+    getter scale : {Float32, Float32}
+    getter rotation : Float64
+    getter flipped : {Bool, Bool}
+    getter z : Int32
+
+    def initialize(@texture : String, @position : {Float32, Float32}, @scale : {Float32, Float32}, @rotation : Float64, @flipped : {Int32, Int32}, @z : Int32)
+    end
+
+    def initialize(obj : PList::Value)
+      hash = obj.as?(Hash)
+      if !hash
+        raise "Object must be a dict"
+      end
+
+      isolated = ["texture", "position", "scale", "rotation", "flipped", "zValue"]
+        .map { |s| {s, hash[s]?} }
+
+      missing = isolated.select { |t| t[1] == nil }
+      if missing.size > 0
+        raise "Missing entries for: #{missing.map { |t| t[0] }}"
+      end
+
+      isolated_hash = Hash.zip(isolated.map { |t| t[0] }, isolated.map { |t| t[1] })
+
+      @texture = isolated_hash["texture"].as(String)
+      @position = Assets.parse_vec_f(isolated_hash["position"].as(String))
+      @scale = Assets.parse_vec_f(isolated_hash["scale"].as(String))
+      @rotation = Float64.new(isolated_hash["rotation"].as(String))
+      @flipped = Assets.parse_vec(isolated_hash["flipped"].as(String)).map { |v| v > 0 }
+      @z = Int32.new(isolated_hash["zValue"].as(String))
+    end
+  end
+
+  alias Animations = Hash(String, Array(AnimationSprite))
+
+  # Load an animations plist file.
+  def load_animations(io : IO)
+    plist = load_plist(io)
+    animations = plist.as(Hash)["animationContainer"].as(Hash)
+    animations_parsed = {} of String => Array(AnimationSprite)
+    animations.each do |k, v|
+      animations_parsed[k] = [] of AnimationSprite
+      values = v.as(Hash).each { |_, v| animations_parsed[k] << AnimationSprite.new(v.as(Hash)) }
+    end
+    animations_parsed
+  end
+
+  def load_animations(path : Path | String)
+    File.open(path) { |file| load_animations(file) }
+  end
+
   # Trims out a sprite from an image according to a .plist spritesheet.
   def get_sprite(spritesheet : Spritesheet, img : Vips::Image, key : String)
     sprite = spritesheet.sprites[key]?
