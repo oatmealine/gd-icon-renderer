@@ -1,9 +1,4 @@
-# example usage:
-# crystal run examples/cli-render.cr -- --type ball -i 35 --color1 000000 --color2 ff7d7d --glow
-
-require "option_parser"
-require "vips"
-require "../src/gd-icon-renderer.cr"
+require "./gd-icon-renderer.cr"
 
 include IconRenderer
 

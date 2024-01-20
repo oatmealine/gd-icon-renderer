@@ -7,7 +7,7 @@ authors:
 
 targets:
   gd-icon-renderer:
-    main: src/gd-icon-renderer.cr
+    main: src/gd-icon-renderer-cli.cr
 
 dependencies:
   vips:
