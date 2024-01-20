@@ -1,7 +1,7 @@
 {
   vips = {
     url = "https://github.com/naqvis/crystal-vips.git";
-    rev = "381c4ba25b31be4094fe8bc6acf740c13fc595ae";
-    sha256 = "0msgxgz5k42fv0hj26lh4z2m9fmyh8h0994fr3snfkv7d2vla9sn";
+    rev = "1c40bc01dc31e8d40a4fc745f7ae0b47898299fa";
+    sha256 = "0dyv6b1c3z2wiv0y9dsqn8clzag8in4cb32g218fpfx3djblmk04";
   };
 }
