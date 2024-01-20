@@ -46,6 +46,7 @@
           nativeBuildInputs = with pkgs; [
             pkg-config
             crystal
+            vips
           ];
         };
       });
