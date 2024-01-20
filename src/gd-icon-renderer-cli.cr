@@ -51,10 +51,9 @@ start = Time.monotonic
 gamemode = Constants::GamemodeType.parse icon_type
 filename = Renderer.get_basename(gamemode, icon_i.to_i)
 
-game_sheet_02 = Assets.load_spritesheet("data/icons/#{filename}-uhd.plist")
-game_sheet_glow = Assets.load_spritesheet("data/icons/#{filename}-uhd.plist")
+sheet = Assets.load_spritesheet("data/icons/#{filename}-uhd.plist")
 
-icon_img = Renderer.render_icon(gamemode, icon_i.not_nil!.to_i, hex_to_rgb(color1), hex_to_rgb(color2), glow, game_sheet_02, game_sheet_glow, ROBOT_ANIMATIONS, SPIDER_ANIMATIONS)
+icon_img = Renderer.render_icon(gamemode, icon_i.not_nil!.to_i, hex_to_rgb(color1), hex_to_rgb(color2), glow, sheet, ROBOT_ANIMATIONS, SPIDER_ANIMATIONS)
 alpha = icon_img.extract_band(3)
 left, top, width, height = alpha.find_trim(threshold: 1, background: [0])
 icon_img = icon_img.crop(left, top, width, height)
