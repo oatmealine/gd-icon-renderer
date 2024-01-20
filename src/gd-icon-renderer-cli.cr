@@ -2,10 +2,8 @@ require "./gd-icon-renderer.cr"
 
 include IconRenderer
 
-GAME_SHEET_02 = Assets.load_spritesheet("data/GJ_GameSheet02-uhd.plist")
-GAME_SHEET_GLOW = Assets.load_spritesheet("data/GJ_GameSheetGlow-uhd.plist")
-ROBOT_ANIMATIONS = IconRenderer::Assets.load_animations("data/Robot_AnimDesc2.plist")
-SPIDER_ANIMATIONS = IconRenderer::Assets.load_animations("data/Spider_AnimDesc2.plist")
+ROBOT_ANIMATIONS = IconRenderer::Assets.load_animations("data/Robot_AnimDesc.plist")
+SPIDER_ANIMATIONS = IconRenderer::Assets.load_animations("data/Spider_AnimDesc.plist")
 
 icon_type = "cube"
 icon_i = "0"
@@ -50,7 +48,13 @@ end
 
 start = Time.monotonic
 
-icon_img = Renderer.render_icon(icon_type, icon_i.not_nil!.to_i, hex_to_rgb(color1), hex_to_rgb(color2), glow, GAME_SHEET_02, GAME_SHEET_GLOW, ROBOT_ANIMATIONS, SPIDER_ANIMATIONS)
+gamemode = Constants::GamemodeType.parse icon_type
+filename = Renderer.get_basename(gamemode, icon_i.to_i)
+
+game_sheet_02 = Assets.load_spritesheet("data/icons/#{filename}-uhd.plist")
+game_sheet_glow = Assets.load_spritesheet("data/icons/#{filename}-uhd.plist")
+
+icon_img = Renderer.render_icon(gamemode, icon_i.not_nil!.to_i, hex_to_rgb(color1), hex_to_rgb(color2), glow, game_sheet_02, game_sheet_glow, ROBOT_ANIMATIONS, SPIDER_ANIMATIONS)
 alpha = icon_img.extract_band(3)
 left, top, width, height = alpha.find_trim(threshold: 1, background: [0])
 icon_img = icon_img.crop(left, top, width, height)

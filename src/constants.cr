@@ -44,20 +44,35 @@ module IconRenderer::Constants
     [0/255,   150/255, 0/255,   1.0],
     [0/255,   0/255,   150/255, 1.0],
     [125/255, 255/255, 175/255, 1.0],
-    [125/255, 125/255, 255/255, 1.0]
+    [125/255, 125/255, 255/255, 1.0],
   ]
 
   # `spicy` = uses 2.0 gamemode render system w/ multiple moving parts
   record Gamemode, prefix : String, spicy : Bool
 
-  # Every gamemode in the game as of 2.1
+  # Every gamemode in the game as of 2.2
+  enum GamemodeType
+    Cube
+    Ship
+    Ball
+    Ufo
+    Wave
+    Robot
+    Spider
+    Jetpack
+    Swing
+  end
+
+  # A mapping of GamemodeType to info about the gamemode
   Gamemodes = {
-    "cube" =>   Gamemode.new("player_", false),
-    "ship" =>   Gamemode.new("ship_", false),
-    "ball" =>   Gamemode.new("player_ball_", false),
-    "ufo" =>    Gamemode.new("bird_", false),
-    "wave" =>   Gamemode.new("dart_", false),
-    "robot" =>  Gamemode.new("robot_", true),
-    "spider" => Gamemode.new("spider_", true),
+    GamemodeType::Cube =>    Gamemode.new("player_", false),
+    GamemodeType::Ship =>    Gamemode.new("ship_", false),
+    GamemodeType::Ball =>    Gamemode.new("player_ball_", false),
+    GamemodeType::Ufo =>     Gamemode.new("bird_", false),
+    GamemodeType::Wave =>    Gamemode.new("dart_", false),
+    GamemodeType::Robot =>   Gamemode.new("robot_", true),
+    GamemodeType::Spider =>  Gamemode.new("spider_", true),
+    GamemodeType::Jetpack => Gamemode.new("jetpack_", false),
+    GamemodeType::Swing =>   Gamemode.new("swing_", false),
   }
 end

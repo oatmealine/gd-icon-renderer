@@ -146,12 +146,16 @@ module IconRenderer::Renderer
     )
   end
 
+  # Given a `gamemode` and `icon`, makes an icon basename to be used in sheet lookups
+  def get_basename(gamemode : Constants::GamemodeType, icon : Int32) : String
+    "#{Constants::Gamemodes[gamemode].prefix}#{icon.to_s.rjust(2, '0')}"
+  end
+
   # The main entrypoint for icon rendering; this should be all you need to render out an icon.
-  #
-  # `gamemode` must be one of `cube`, `ship`, `ball`, `ufo`, `wave`, `robot` or `spider`
   #
   # Example:
   # ```
+  # # TODO update
   # # Load assets
   # GAME_SHEET_02 = IconRenderer::Assets.load_spritesheet("data/GJ_GameSheet02-uhd.plist")
   # GAME_SHEET_GLOW = IconRenderer::Assets.load_spritesheet("data/GJ_GameSheetGlow-uhd.plist")
@@ -166,16 +170,13 @@ module IconRenderer::Renderer
   # # Write it to a file
   # icon_img.write_to_file("icon_rendered.png")
   # ```
-  def render_icon(gamemode_str : String, icon : Int32, col1 : Array(Float64), col2 : Array(Float64), glow : Bool, game_sheet_02 : Assets::LoadedSpritesheet, game_sheet_glow : Assets::LoadedSpritesheet, robot_animations : Assets::Animations, spider_animations : Assets::Animations)
-    gamemode = Constants::Gamemodes[gamemode_str]?
-    if !gamemode
-      raise "Invalid gamemode #{gamemode_str}"
-    end
-
+  def render_icon(gamemode_type : Constants::GamemodeType, icon : Int32, col1 : Array(Float64), col2 : Array(Float64), glow : Bool, game_sheet_02 : Assets::LoadedSpritesheet, game_sheet_glow : Assets::LoadedSpritesheet, robot_animations : Assets::Animations, spider_animations : Assets::Animations)
+    gamemode = Constants::Gamemodes[gamemode_type]
+    basename = get_basename(gamemode_type, icon)
     if gamemode.spicy
-      render_spicy("#{gamemode.prefix}#{icon.to_s.rjust(2, '0')}", col1, col2, glow, game_sheet_02, game_sheet_glow, gamemode_str == "robot" ? robot_animations : spider_animations)
+      render_spicy(basename, col1, col2, glow, game_sheet_02, game_sheet_glow, gamemode_type.robot? ? robot_animations : spider_animations)
     else
-      render_normal("#{gamemode.prefix}#{icon.to_s.rjust(2, '0')}", col1, col2, glow, game_sheet_02, game_sheet_glow)
+      render_normal(basename, col1, col2, glow, game_sheet_02, game_sheet_glow)
     end
   end
 end
