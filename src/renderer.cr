@@ -58,7 +58,7 @@ module IconRenderer::Renderer
   # icon_img = IconRenderer::Renderer.render_normal("ship_44", [0.0, 0.0, 0.0, 1.0], [255/255, 125/255, 125/255, 1.0], nil, true, SHEET)
   # ```
   def render_normal(basename : String, col1 : Array(Float64), col2 : Array(Float64), col3 : Array(Float64)?, glow : Bool, sheet : Assets::LoadedSpritesheet)
-    glow_col = col3 || is_black(col2) ? (is_black(col1) ? [1.0, 1.0, 1.0, 1.0] : col1) : col2
+    glow_col = col3 || (is_black(col2) ? (is_black(col1) ? [1.0, 1.0, 1.0, 1.0] : col1) : col2)
 
     layers = [
       (glow || (is_black(col1) && is_black(col2))) ? Assets.get_sprite(sheet, "#{basename}_glow_001.png") : nil,
@@ -93,7 +93,7 @@ module IconRenderer::Renderer
   # icon_img = IconRenderer::Renderer.render_icon("spider_01", [0.0, 0.0, 0.0, 1.0], [255/255, 125/255, 125/255, 1.0], nil, true, SHEET, SPIDER_ANIMATIONS)
   # ```
   def render_spicy(basename : String, col1 : Array(Float64), col2 : Array(Float64), col3 : Array(Float64)?, glow : Bool, sheet : Assets::LoadedSpritesheet, animations : Assets::Animations)
-    glow_col = col3 || is_black(col2) ? (is_black(col1) ? [1.0, 1.0, 1.0, 1.0] : col1) : col2
+    glow_col = col3 || (is_black(col2) ? (is_black(col1) ? [1.0, 1.0, 1.0, 1.0] : col1) : col2)
     glow = (glow || (is_black(col1) && is_black(col2)))
 
     # todo: change to argument
