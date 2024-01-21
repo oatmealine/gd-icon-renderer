@@ -1,6 +1,6 @@
 name: gd-icon-renderer
 description: A Crystal Geometry Dash icon renderer library
-version: 0.1.0
+version: 0.2.0
 
 authors:
   - Jill "oatmealine" Monoids <oatmealine@disroot.org>
