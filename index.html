@@ -112,6 +112,11 @@
       
     </li>
   
+  <li class=" " data-id="gd-icon-renderer/IconRenderer/Constants/GamemodeType" data-name="iconrenderer::constants::gamemodetype">
+      <a href="IconRenderer/Constants/GamemodeType.html">GamemodeType</a>
+      
+    </li>
+  
 </ul>
 
       
@@ -189,17 +194,16 @@
     <use href="#octicon-link"/>
   </svg>
 </a>Usage</h2>
-<p>Currently, for most examples under <code>examples/</code>, you'll have to plug <code>GJ_GameSheet02-uhd</code> and <code>GJ_GameSheetGlow-uhd</code> along with their <code>plist</code> files in <code>data/</code>. Otherwise, the process for rendering an icon is as follows:</p>
+<p>Currently, for most examples under <code>examples/</code>, you'll have to plug the <code>icons</code> folder of your GD install in <code>data/</code>. Otherwise, the process for rendering an icon is as follows:</p>
 <ol>
 <li>
 <p>Load spritesheets:</p>
 <pre><code class="language-crystal"><span class="c"># Replace the filepaths here with whatever is relevant for your usecase</span>
-<span class="t">GAME_SHEET_02</span> <span class="o">=</span> <span class="t">IconRenderer</span><span class="t">::</span><span class="t">Assets</span>.load_spritesheet(<span class="s">&quot;data/GJ_GameSheet02-uhd.plist&quot;</span>)
-<span class="t">GAME_SHEET_GLOW</span> <span class="o">=</span> <span class="t">IconRenderer</span><span class="t">::</span><span class="t">Assets</span>.load_spritesheet(<span class="s">&quot;data/GJ_GameSheetGlow-uhd.plist&quot;</span>)</code></pre>
+sheet <span class="o">=</span> <span class="t">IconRenderer</span><span class="t">::</span><span class="t">Assets</span>.load_spritesheet(<span class="s">&quot;data/icons/ship_44-uhd.plist&quot;</span>)</code></pre>
 </li>
 <li>
 <p>Render the icon out:</p>
-<pre><code class="language-crystal">icon_img <span class="o">=</span> <span class="t">IconRenderer</span><span class="t">::</span><span class="t">Renderer</span>.render_icon(<span class="s">&quot;ship_44&quot;</span>, [<span class="n">0.0</span>, <span class="n">0.0</span>, <span class="n">0.0</span>, <span class="n">1.0</span>], [<span class="n">255</span><span class="o">/</span><span class="n">255</span>, <span class="n">125</span><span class="o">/</span><span class="n">255</span>, <span class="n">125</span><span class="o">/</span><span class="n">255</span>, <span class="n">1.0</span>], <span class="n">true</span>, <span class="t">GAME_SHEET_02</span>, <span class="t">GAME_SHEET_GLOW</span>)</code></pre>
+<pre><code class="language-crystal">icon_img <span class="o">=</span> <span class="t">IconRenderer</span><span class="t">::</span><span class="t">Renderer</span>.render_icon(<span class="s">&quot;ship_44&quot;</span>, [<span class="n">0.0</span>, <span class="n">0.0</span>, <span class="n">0.0</span>, <span class="n">1.0</span>], [<span class="n">255</span><span class="o">/</span><span class="n">255</span>, <span class="n">125</span><span class="o">/</span><span class="n">255</span>, <span class="n">125</span><span class="o">/</span><span class="n">255</span>, <span class="n">1.0</span>], <span class="n">nil</span>, <span class="n">true</span>, sheet)</code></pre>
 <p>You'll now be given a <a href="https://naqvis.github.io/crystal-vips/Vips/Image.html"><code>Vips::Image</code></a>.</p>
 </li>
 <li>

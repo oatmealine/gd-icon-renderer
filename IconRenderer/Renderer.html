@@ -112,6 +112,11 @@
       
     </li>
   
+  <li class=" " data-id="gd-icon-renderer/IconRenderer/Constants/GamemodeType" data-name="iconrenderer::constants::gamemodetype">
+      <a href="../IconRenderer/Constants/GamemodeType.html">GamemodeType</a>
+      
+    </li>
+  
 </ul>
 
       
@@ -207,7 +212,7 @@
   </h2>
   
     
-      <a href="https://github.com/oatmealine/gd-icon-renderer/blob/003be00620a00a80d91f179b7314830896e350a7/src/renderer.cr#L2" target="_blank">
+      <a href="https://github.com/oatmealine/gd-icon-renderer/blob/4e0c9b8a5a23376ae7be7d19087b7ce7d5d5a77d/src/renderer.cr#L2" target="_blank">
         renderer.cr
       </a>
     
@@ -235,7 +240,14 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#render_icon%28gamemode_str%3AString%2Cicon%3AInt32%2Ccol1%3AArray%28Float64%29%2Ccol2%3AArray%28Float64%29%2Cglow%3ABool%2Cgame_sheet_02%3AAssets%3A%3ALoadedSpritesheet%2Cgame_sheet_glow%3AAssets%3A%3ALoadedSpritesheet%2Crobot_animations%3AAssets%3A%3AAnimations%2Cspider_animations%3AAssets%3A%3AAnimations%29-instance-method" class="signature"><strong>#render_icon</strong>(gamemode_str : String, icon : Int32, col1 : Array(Float64), col2 : Array(Float64), glow : Bool, game_sheet_02 : Assets::LoadedSpritesheet, game_sheet_glow : Assets::LoadedSpritesheet, robot_animations : Assets::Animations, spider_animations : Assets::Animations)</a>
+        <a href="#get_basename%28gamemode%3AConstants%3A%3AGamemodeType%2Cicon%3AInt32%29%3AString-instance-method" class="signature"><strong>#get_basename</strong>(gamemode : Constants::GamemodeType, icon : Int32) : String</a>
+        
+          <div class="summary"><p>Given a <code>gamemode</code> and <code>icon</code>, makes an icon basename to be used in sheet lookups</p></div>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#render_icon%28gamemode_type%3AConstants%3A%3AGamemodeType%2Cicon%3AInt32%2Ccol1%3AArray%28Float64%29%2Ccol2%3AArray%28Float64%29%2Ccol3%3AArray%28Float64%29%7CNil%2Cglow%3ABool%2Csheet%3AAssets%3A%3ALoadedSpritesheet%2Crobot_animations%3AAssets%3A%3AAnimations%2Cspider_animations%3AAssets%3A%3AAnimations%29-instance-method" class="signature"><strong>#render_icon</strong>(gamemode_type : Constants::GamemodeType, icon : Int32, col1 : Array(Float64), col2 : Array(Float64), col3 : Array(Float64) | Nil, glow : Bool, sheet : Assets::LoadedSpritesheet, robot_animations : Assets::Animations, spider_animations : Assets::Animations)</a>
         
           <div class="summary"><p>The main entrypoint for icon rendering; this should be all you need to render out an icon.</p></div>
         
@@ -249,16 +261,16 @@
       </li>
     
       <li class="entry-summary">
-        <a href="#render_normal%28basename%3AString%2Ccol1%3AArray%28Float64%29%2Ccol2%3AArray%28Float64%29%2Cglow%3ABool%2Cgame_sheet_02%3AAssets%3A%3ALoadedSpritesheet%2Cgame_sheet_glow%3AAssets%3A%3ALoadedSpritesheet%29-instance-method" class="signature"><strong>#render_normal</strong>(basename : String, col1 : Array(Float64), col2 : Array(Float64), glow : Bool, game_sheet_02 : Assets::LoadedSpritesheet, game_sheet_glow : Assets::LoadedSpritesheet)</a>
+        <a href="#render_normal%28basename%3AString%2Ccol1%3AArray%28Float64%29%2Ccol2%3AArray%28Float64%29%2Ccol3%3AArray%28Float64%29%7CNil%2Cglow%3ABool%2Csheet%3AAssets%3A%3ALoadedSpritesheet%29-instance-method" class="signature"><strong>#render_normal</strong>(basename : String, col1 : Array(Float64), col2 : Array(Float64), col3 : Array(Float64) | Nil, glow : Bool, sheet : Assets::LoadedSpritesheet)</a>
         
           <div class="summary"><p>Renders out a non-robot/spider icon.</p></div>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#render_spicy%28basename%3AString%2Ccol1%3AArray%28Float64%29%2Ccol2%3AArray%28Float64%29%2Cglow%3ABool%2Cgame_sheet_02%3AAssets%3A%3ALoadedSpritesheet%2Cgame_sheet_glow%3AAssets%3A%3ALoadedSpritesheet%2Canimations%3AAssets%3A%3AAnimations%29-instance-method" class="signature"><strong>#render_spicy</strong>(basename : String, col1 : Array(Float64), col2 : Array(Float64), glow : Bool, game_sheet_02 : Assets::LoadedSpritesheet, game_sheet_glow : Assets::LoadedSpritesheet, animations : Assets::Animations)</a>
+        <a href="#render_spicy%28basename%3AString%2Ccol1%3AArray%28Float64%29%2Ccol2%3AArray%28Float64%29%2Ccol3%3AArray%28Float64%29%7CNil%2Cglow%3ABool%2Csheet%3AAssets%3A%3ALoadedSpritesheet%2Canimations%3AAssets%3A%3AAnimations%29-instance-method" class="signature"><strong>#render_spicy</strong>(basename : String, col1 : Array(Float64), col2 : Array(Float64), col3 : Array(Float64) | Nil, glow : Bool, sheet : Assets::LoadedSpritesheet, animations : Assets::Animations)</a>
         
-          <div class="summary"><p><code><a href="../IconRenderer/Renderer.html#render_normal%28basename%3AString%2Ccol1%3AArray%28Float64%29%2Ccol2%3AArray%28Float64%29%2Cglow%3ABool%2Cgame_sheet_02%3AAssets%3A%3ALoadedSpritesheet%2Cgame_sheet_glow%3AAssets%3A%3ALoadedSpritesheet%29-instance-method">#render_normal</a></code>, except for robots and spiders.</p></div>
+          <div class="summary"><p><code><a href="../IconRenderer/Renderer.html#render_normal%28basename%3AString%2Ccol1%3AArray%28Float64%29%2Ccol2%3AArray%28Float64%29%2Ccol3%3AArray%28Float64%29%7CNil%2Cglow%3ABool%2Csheet%3AAssets%3A%3ALoadedSpritesheet%29-instance-method">#render_normal</a></code>, except for robots and spiders.</p></div>
         
       </li>
     
@@ -286,26 +298,48 @@
     Instance Method Detail
   </h2>
   
-    <div class="entry-detail" id="render_icon(gamemode_str:String,icon:Int32,col1:Array(Float64),col2:Array(Float64),glow:Bool,game_sheet_02:Assets::LoadedSpritesheet,game_sheet_glow:Assets::LoadedSpritesheet,robot_animations:Assets::Animations,spider_animations:Assets::Animations)-instance-method">
+    <div class="entry-detail" id="get_basename(gamemode:Constants::GamemodeType,icon:Int32):String-instance-method">
       <div class="signature">
         
-        def <strong>render_icon</strong>(gamemode_str : String, icon : Int32, col1 : Array(Float64), col2 : Array(Float64), glow : Bool, game_sheet_02 : <a href="../IconRenderer/Assets/LoadedSpritesheet.html">Assets::LoadedSpritesheet</a>, game_sheet_glow : <a href="../IconRenderer/Assets/LoadedSpritesheet.html">Assets::LoadedSpritesheet</a>, robot_animations : <a href="../IconRenderer/Assets/Animations.html">Assets::Animations</a>, spider_animations : <a href="../IconRenderer/Assets/Animations.html">Assets::Animations</a>)
+        def <strong>get_basename</strong>(gamemode : <a href="../IconRenderer/Constants/GamemodeType.html">Constants::GamemodeType</a>, icon : Int32) : String
 
-        <a class="method-permalink" href="#render_icon%28gamemode_str%3AString%2Cicon%3AInt32%2Ccol1%3AArray%28Float64%29%2Ccol2%3AArray%28Float64%29%2Cglow%3ABool%2Cgame_sheet_02%3AAssets%3A%3ALoadedSpritesheet%2Cgame_sheet_glow%3AAssets%3A%3ALoadedSpritesheet%2Crobot_animations%3AAssets%3A%3AAnimations%2Cspider_animations%3AAssets%3A%3AAnimations%29-instance-method">#</a>
+        <a class="method-permalink" href="#get_basename%28gamemode%3AConstants%3A%3AGamemodeType%2Cicon%3AInt32%29%3AString-instance-method">#</a>
+      </div>
+      
+        <div class="doc">
+          
+          <p>Given a <code>gamemode</code> and <code>icon</code>, makes an icon basename to be used in sheet lookups</p>
+        </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/4e0c9b8a5a23376ae7be7d19087b7ce7d5d5a77d/src/renderer.cr#L148" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="render_icon(gamemode_type:Constants::GamemodeType,icon:Int32,col1:Array(Float64),col2:Array(Float64),col3:Array(Float64)|Nil,glow:Bool,sheet:Assets::LoadedSpritesheet,robot_animations:Assets::Animations,spider_animations:Assets::Animations)-instance-method">
+      <div class="signature">
+        
+        def <strong>render_icon</strong>(gamemode_type : <a href="../IconRenderer/Constants/GamemodeType.html">Constants::GamemodeType</a>, icon : Int32, col1 : Array(Float64), col2 : Array(Float64), col3 : Array(Float64) | Nil, glow : Bool, sheet : <a href="../IconRenderer/Assets/LoadedSpritesheet.html">Assets::LoadedSpritesheet</a>, robot_animations : <a href="../IconRenderer/Assets/Animations.html">Assets::Animations</a>, spider_animations : <a href="../IconRenderer/Assets/Animations.html">Assets::Animations</a>)
+
+        <a class="method-permalink" href="#render_icon%28gamemode_type%3AConstants%3A%3AGamemodeType%2Cicon%3AInt32%2Ccol1%3AArray%28Float64%29%2Ccol2%3AArray%28Float64%29%2Ccol3%3AArray%28Float64%29%7CNil%2Cglow%3ABool%2Csheet%3AAssets%3A%3ALoadedSpritesheet%2Crobot_animations%3AAssets%3A%3AAnimations%2Cspider_animations%3AAssets%3A%3AAnimations%29-instance-method">#</a>
       </div>
       
         <div class="doc">
           
           <p>The main entrypoint for icon rendering; this should be all you need to render out an icon.</p>
-<p><code>gamemode</code> must be one of <code>cube</code>, <code>ship</code>, <code>ball</code>, <code>ufo</code>, <code>wave</code>, <code>robot</code> or <code>spider</code></p>
 <p>Example:</p>
-<pre><code class="language-crystal"><span class="c"># Load assets</span>
-<span class="t">GAME_SHEET_02</span> <span class="o">=</span> <span class="t">IconRenderer</span><span class="t">::</span><span class="t">Assets</span>.load_spritesheet(<span class="s">&quot;data/GJ_GameSheet02-uhd.plist&quot;</span>)
-<span class="t">GAME_SHEET_GLOW</span> <span class="o">=</span> <span class="t">IconRenderer</span><span class="t">::</span><span class="t">Assets</span>.load_spritesheet(<span class="s">&quot;data/GJ_GameSheetGlow-uhd.plist&quot;</span>)
-<span class="t">ROBOT_ANIMATIONS</span> <span class="o">=</span> <span class="t">IconRenderer</span><span class="t">::</span><span class="t">Assets</span>.load_animations(<span class="s">&quot;data/Robot_AnimDesc2.plist&quot;</span>)
-<span class="t">SPIDER_ANIMATIONS</span> <span class="o">=</span> <span class="t">IconRenderer</span><span class="t">::</span><span class="t">Assets</span>.load_animations(<span class="s">&quot;data/Spider_AnimDesc2.plist&quot;</span>)
+<pre><code class="language-crystal">gamemode <span class="o">=</span> <span class="t">IconRenderer</span><span class="t">::</span><span class="t">Constants</span><span class="t">::</span><span class="t">GamemodeType</span><span class="t">::</span><span class="t">Ball</span>
+icon_id <span class="o">=</span> <span class="n">35</span>
+<span class="c"># Load assets</span>
+<span class="t">ROBOT_ANIMATIONS</span> <span class="o">=</span> <span class="t">IconRenderer</span><span class="t">::</span><span class="t">Assets</span>.load_animations(<span class="s">&quot;data/Robot_AnimDesc.plist&quot;</span>)
+<span class="t">SPIDER_ANIMATIONS</span> <span class="o">=</span> <span class="t">IconRenderer</span><span class="t">::</span><span class="t">Assets</span>.load_animations(<span class="s">&quot;data/Spider_AnimDesc.plist&quot;</span>)
+basename <span class="o">=</span> <span class="t">IconRenderer</span><span class="t">::</span><span class="t">Renderer</span>.get_basename(gamemode, icon_id)
+sheet <span class="o">=</span> <span class="t">IconRenderer</span><span class="t">::</span><span class="t">Assets</span>.load_spritesheet(<span class="s">&quot;data/icons/</span><span class="i">#{</span>basename<span class="i">}</span><span class="s">-uhd.plist&quot;</span>)
 <span class="c"># Render out the icon</span>
-icon_img <span class="o">=</span> <span class="t">IconRenderer</span><span class="t">::</span><span class="t">Renderer</span>.render_icon(<span class="s">&quot;ball&quot;</span>, <span class="n">35</span>, [<span class="n">0.0</span>, <span class="n">0.0</span>, <span class="n">0.0</span>, <span class="n">1.0</span>], [<span class="n">255</span><span class="o">/</span><span class="n">255</span>, <span class="n">125</span><span class="o">/</span><span class="n">255</span>, <span class="n">125</span><span class="o">/</span><span class="n">255</span>, <span class="n">1.0</span>], <span class="n">true</span>, <span class="t">GAME_SHEET_02</span>, <span class="t">GAME_SHEET_GLOW</span>, <span class="t">ROBOT_ANIMATIONS</span>, <span class="t">SPIDER_ANIMATIONS</span>)
+icon_img <span class="o">=</span> <span class="t">IconRenderer</span><span class="t">::</span><span class="t">Renderer</span>.render_icon(gamemode, icon_id, [<span class="n">0.0</span>, <span class="n">0.0</span>, <span class="n">0.0</span>, <span class="n">1.0</span>], [<span class="n">255</span><span class="o">/</span><span class="n">255</span>, <span class="n">125</span><span class="o">/</span><span class="n">255</span>, <span class="n">125</span><span class="o">/</span><span class="n">255</span>, <span class="n">1.0</span>], <span class="n">true</span>, sheet, <span class="t">ROBOT_ANIMATIONS</span>, <span class="t">SPIDER_ANIMATIONS</span>)
 <span class="c"># Trim it out</span>
 alpha <span class="o">=</span> icon_img.extract_band(<span class="n">3</span>)
 left, top, width, height <span class="o">=</span> alpha.find_trim(threshold: <span class="n">0</span>, background: [<span class="n">0</span>])
@@ -317,7 +351,7 @@ icon_img.write_to_file(<span class="s">&quot;icon_rendered.png&quot;</span>)</co
       <br/>
       <div>
         
-          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/003be00620a00a80d91f179b7314830896e350a7/src/renderer.cr#L169" target="_blank">View source</a>]
+          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/4e0c9b8a5a23376ae7be7d19087b7ce7d5d5a77d/src/renderer.cr#L172" target="_blank">View source</a>]
         
       </div>
     </div>
@@ -338,58 +372,56 @@ icon_img.write_to_file(<span class="s">&quot;icon_rendered.png&quot;</span>)</co
       <br/>
       <div>
         
-          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/003be00620a00a80d91f179b7314830896e350a7/src/renderer.cr#L25" target="_blank">View source</a>]
+          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/4e0c9b8a5a23376ae7be7d19087b7ce7d5d5a77d/src/renderer.cr#L25" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="render_normal(basename:String,col1:Array(Float64),col2:Array(Float64),glow:Bool,game_sheet_02:Assets::LoadedSpritesheet,game_sheet_glow:Assets::LoadedSpritesheet)-instance-method">
+    <div class="entry-detail" id="render_normal(basename:String,col1:Array(Float64),col2:Array(Float64),col3:Array(Float64)|Nil,glow:Bool,sheet:Assets::LoadedSpritesheet)-instance-method">
       <div class="signature">
         
-        def <strong>render_normal</strong>(basename : String, col1 : Array(Float64), col2 : Array(Float64), glow : Bool, game_sheet_02 : <a href="../IconRenderer/Assets/LoadedSpritesheet.html">Assets::LoadedSpritesheet</a>, game_sheet_glow : <a href="../IconRenderer/Assets/LoadedSpritesheet.html">Assets::LoadedSpritesheet</a>)
+        def <strong>render_normal</strong>(basename : String, col1 : Array(Float64), col2 : Array(Float64), col3 : Array(Float64) | Nil, glow : Bool, sheet : <a href="../IconRenderer/Assets/LoadedSpritesheet.html">Assets::LoadedSpritesheet</a>)
 
-        <a class="method-permalink" href="#render_normal%28basename%3AString%2Ccol1%3AArray%28Float64%29%2Ccol2%3AArray%28Float64%29%2Cglow%3ABool%2Cgame_sheet_02%3AAssets%3A%3ALoadedSpritesheet%2Cgame_sheet_glow%3AAssets%3A%3ALoadedSpritesheet%29-instance-method">#</a>
+        <a class="method-permalink" href="#render_normal%28basename%3AString%2Ccol1%3AArray%28Float64%29%2Ccol2%3AArray%28Float64%29%2Ccol3%3AArray%28Float64%29%7CNil%2Cglow%3ABool%2Csheet%3AAssets%3A%3ALoadedSpritesheet%29-instance-method">#</a>
       </div>
       
         <div class="doc">
           
-          <p>Renders out a non-robot/spider icon. You may be looking for <code><a href="../IconRenderer/Renderer.html#render_icon%28gamemode_str%3AString%2Cicon%3AInt32%2Ccol1%3AArray%28Float64%29%2Ccol2%3AArray%28Float64%29%2Cglow%3ABool%2Cgame_sheet_02%3AAssets%3A%3ALoadedSpritesheet%2Cgame_sheet_glow%3AAssets%3A%3ALoadedSpritesheet%2Crobot_animations%3AAssets%3A%3AAnimations%2Cspider_animations%3AAssets%3A%3AAnimations%29-instance-method">#render_icon</a></code>.</p>
+          <p>Renders out a non-robot/spider icon. You may be looking for <code><a href="../IconRenderer/Renderer.html#render_icon%28gamemode_type%3AConstants%3A%3AGamemodeType%2Cicon%3AInt32%2Ccol1%3AArray%28Float64%29%2Ccol2%3AArray%28Float64%29%2Ccol3%3AArray%28Float64%29%7CNil%2Cglow%3ABool%2Csheet%3AAssets%3A%3ALoadedSpritesheet%2Crobot_animations%3AAssets%3A%3AAnimations%2Cspider_animations%3AAssets%3A%3AAnimations%29-instance-method">#render_icon</a></code>.</p>
 <p>Example:</p>
-<pre><code class="language-crystal"><span class="t">GAME_SHEET_02</span> <span class="o">=</span> <span class="t">IconRenderer</span><span class="t">::</span><span class="t">Assets</span>.load_spritesheet(<span class="s">&quot;data/GJ_GameSheet02-uhd.plist&quot;</span>)
-<span class="t">GAME_SHEET_GLOW</span> <span class="o">=</span> <span class="t">IconRenderer</span><span class="t">::</span><span class="t">Assets</span>.load_spritesheet(<span class="s">&quot;data/GJ_GameSheetGlow-uhd.plist&quot;</span>)
-icon_img <span class="o">=</span> <span class="t">IconRenderer</span><span class="t">::</span><span class="t">Renderer</span>.render_normal(<span class="s">&quot;ship_44&quot;</span>, [<span class="n">0.0</span>, <span class="n">0.0</span>, <span class="n">0.0</span>, <span class="n">1.0</span>], [<span class="n">255</span><span class="o">/</span><span class="n">255</span>, <span class="n">125</span><span class="o">/</span><span class="n">255</span>, <span class="n">125</span><span class="o">/</span><span class="n">255</span>, <span class="n">1.0</span>], <span class="n">true</span>, <span class="t">GAME_SHEET_02</span>, <span class="t">GAME_SHEET_GLOW</span>)</code></pre>
+<pre><code class="language-crystal"><span class="t">SHEET</span> <span class="o">=</span> <span class="t">IconRenderer</span><span class="t">::</span><span class="t">Assets</span>.load_spritesheet(<span class="s">&quot;data/icons/ship_44-uhd.plist&quot;</span>)
+icon_img <span class="o">=</span> <span class="t">IconRenderer</span><span class="t">::</span><span class="t">Renderer</span>.render_normal(<span class="s">&quot;ship_44&quot;</span>, [<span class="n">0.0</span>, <span class="n">0.0</span>, <span class="n">0.0</span>, <span class="n">1.0</span>], [<span class="n">255</span><span class="o">/</span><span class="n">255</span>, <span class="n">125</span><span class="o">/</span><span class="n">255</span>, <span class="n">125</span><span class="o">/</span><span class="n">255</span>, <span class="n">1.0</span>], <span class="n">nil</span>, <span class="n">true</span>, <span class="t">SHEET</span>)</code></pre>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/003be00620a00a80d91f179b7314830896e350a7/src/renderer.cr#L61" target="_blank">View source</a>]
+          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/4e0c9b8a5a23376ae7be7d19087b7ce7d5d5a77d/src/renderer.cr#L60" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="render_spicy(basename:String,col1:Array(Float64),col2:Array(Float64),glow:Bool,game_sheet_02:Assets::LoadedSpritesheet,game_sheet_glow:Assets::LoadedSpritesheet,animations:Assets::Animations)-instance-method">
+    <div class="entry-detail" id="render_spicy(basename:String,col1:Array(Float64),col2:Array(Float64),col3:Array(Float64)|Nil,glow:Bool,sheet:Assets::LoadedSpritesheet,animations:Assets::Animations)-instance-method">
       <div class="signature">
         
-        def <strong>render_spicy</strong>(basename : String, col1 : Array(Float64), col2 : Array(Float64), glow : Bool, game_sheet_02 : <a href="../IconRenderer/Assets/LoadedSpritesheet.html">Assets::LoadedSpritesheet</a>, game_sheet_glow : <a href="../IconRenderer/Assets/LoadedSpritesheet.html">Assets::LoadedSpritesheet</a>, animations : <a href="../IconRenderer/Assets/Animations.html">Assets::Animations</a>)
+        def <strong>render_spicy</strong>(basename : String, col1 : Array(Float64), col2 : Array(Float64), col3 : Array(Float64) | Nil, glow : Bool, sheet : <a href="../IconRenderer/Assets/LoadedSpritesheet.html">Assets::LoadedSpritesheet</a>, animations : <a href="../IconRenderer/Assets/Animations.html">Assets::Animations</a>)
 
-        <a class="method-permalink" href="#render_spicy%28basename%3AString%2Ccol1%3AArray%28Float64%29%2Ccol2%3AArray%28Float64%29%2Cglow%3ABool%2Cgame_sheet_02%3AAssets%3A%3ALoadedSpritesheet%2Cgame_sheet_glow%3AAssets%3A%3ALoadedSpritesheet%2Canimations%3AAssets%3A%3AAnimations%29-instance-method">#</a>
+        <a class="method-permalink" href="#render_spicy%28basename%3AString%2Ccol1%3AArray%28Float64%29%2Ccol2%3AArray%28Float64%29%2Ccol3%3AArray%28Float64%29%7CNil%2Cglow%3ABool%2Csheet%3AAssets%3A%3ALoadedSpritesheet%2Canimations%3AAssets%3A%3AAnimations%29-instance-method">#</a>
       </div>
       
         <div class="doc">
           
-          <p><code><a href="../IconRenderer/Renderer.html#render_normal%28basename%3AString%2Ccol1%3AArray%28Float64%29%2Ccol2%3AArray%28Float64%29%2Cglow%3ABool%2Cgame_sheet_02%3AAssets%3A%3ALoadedSpritesheet%2Cgame_sheet_glow%3AAssets%3A%3ALoadedSpritesheet%29-instance-method">#render_normal</a></code>, except for robots and spiders. Additionally requires animations for both.</p>
+          <p><code><a href="../IconRenderer/Renderer.html#render_normal%28basename%3AString%2Ccol1%3AArray%28Float64%29%2Ccol2%3AArray%28Float64%29%2Ccol3%3AArray%28Float64%29%7CNil%2Cglow%3ABool%2Csheet%3AAssets%3A%3ALoadedSpritesheet%29-instance-method">#render_normal</a></code>, except for robots and spiders. Additionally requires animations for both.</p>
 <p>Example:</p>
-<pre><code class="language-crystal"><span class="t">GAME_SHEET_02</span> <span class="o">=</span> <span class="t">IconRenderer</span><span class="t">::</span><span class="t">Assets</span>.load_spritesheet(<span class="s">&quot;data/GJ_GameSheet02-uhd.plist&quot;</span>)
-<span class="t">GAME_SHEET_GLOW</span> <span class="o">=</span> <span class="t">IconRenderer</span><span class="t">::</span><span class="t">Assets</span>.load_spritesheet(<span class="s">&quot;data/GJ_GameSheetGlow-uhd.plist&quot;</span>)
-<span class="t">SPIDER_ANIMATIONS</span> <span class="o">=</span> <span class="t">IconRenderer</span><span class="t">::</span><span class="t">Assets</span>.load_animations(<span class="s">&quot;data/Spider_AnimDesc2.plist&quot;</span>)
-icon_img <span class="o">=</span> <span class="t">IconRenderer</span><span class="t">::</span><span class="t">Renderer</span>.render_icon(<span class="s">&quot;spider_01&quot;</span>, [<span class="n">0.0</span>, <span class="n">0.0</span>, <span class="n">0.0</span>, <span class="n">1.0</span>], [<span class="n">255</span><span class="o">/</span><span class="n">255</span>, <span class="n">125</span><span class="o">/</span><span class="n">255</span>, <span class="n">125</span><span class="o">/</span><span class="n">255</span>, <span class="n">1.0</span>], <span class="n">true</span>, <span class="t">GAME_SHEET_02</span>, <span class="t">GAME_SHEET_GLOW</span>, <span class="t">SPIDER_ANIMATIONS</span>)</code></pre>
+<pre><code class="language-crystal"><span class="t">SHEET</span> <span class="o">=</span> <span class="t">IconRenderer</span><span class="t">::</span><span class="t">Assets</span>.load_spritesheet(<span class="s">&quot;data/icons/spider_01-uhd.plist&quot;</span>)
+<span class="t">SPIDER_ANIMATIONS</span> <span class="o">=</span> <span class="t">IconRenderer</span><span class="t">::</span><span class="t">Assets</span>.load_animations(<span class="s">&quot;data/Spider_AnimDesc.plist&quot;</span>)
+icon_img <span class="o">=</span> <span class="t">IconRenderer</span><span class="t">::</span><span class="t">Renderer</span>.render_icon(<span class="s">&quot;spider_01&quot;</span>, [<span class="n">0.0</span>, <span class="n">0.0</span>, <span class="n">0.0</span>, <span class="n">1.0</span>], [<span class="n">255</span><span class="o">/</span><span class="n">255</span>, <span class="n">125</span><span class="o">/</span><span class="n">255</span>, <span class="n">125</span><span class="o">/</span><span class="n">255</span>, <span class="n">1.0</span>], <span class="n">nil</span>, <span class="n">true</span>, <span class="t">SHEET</span>, <span class="t">SPIDER_ANIMATIONS</span>)</code></pre>
         </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/003be00620a00a80d91f179b7314830896e350a7/src/renderer.cr#L97" target="_blank">View source</a>]
+          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/4e0c9b8a5a23376ae7be7d19087b7ce7d5d5a77d/src/renderer.cr#L95" target="_blank">View source</a>]
         
       </div>
     </div>

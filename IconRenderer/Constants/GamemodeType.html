@@ -14,7 +14,7 @@
 <script type="text/javascript" src="../../js/doc.js"></script>
 
   <meta name="repository-name" content="gd-icon-renderer">
-  <title>IconRenderer::Constants::Gamemode - gd-icon-renderer main</title>
+  <title>IconRenderer::Constants::GamemodeType - gd-icon-renderer main</title>
   <script type="text/javascript">
     CrystalDocs.base_path = "../../";
   </script>
@@ -107,12 +107,12 @@
       
         <ul>
   
-  <li class=" current" data-id="gd-icon-renderer/IconRenderer/Constants/Gamemode" data-name="iconrenderer::constants::gamemode">
+  <li class=" " data-id="gd-icon-renderer/IconRenderer/Constants/Gamemode" data-name="iconrenderer::constants::gamemode">
       <a href="../../IconRenderer/Constants/Gamemode.html">Gamemode</a>
       
     </li>
   
-  <li class=" " data-id="gd-icon-renderer/IconRenderer/Constants/GamemodeType" data-name="iconrenderer::constants::gamemodetype">
+  <li class=" current" data-id="gd-icon-renderer/IconRenderer/Constants/GamemodeType" data-name="iconrenderer::constants::gamemodetype">
       <a href="../../IconRenderer/Constants/GamemodeType.html">GamemodeType</a>
       
     </li>
@@ -156,12 +156,10 @@
 <div class="main-content">
 <h1 class="type-name">
 
-  <span class="kind">struct</span> IconRenderer::<wbr>Constants::<wbr>Gamemode
+  <span class="kind">enum</span> IconRenderer::<wbr>Constants::<wbr>GamemodeType
 
 </h1>
 
-
-  <ul class="superclass-hierarchy"><li class="superclass"><a href="../../IconRenderer/Constants/Gamemode.html">IconRenderer::Constants::Gamemode</a></li><li class="superclass">Struct</li><li class="superclass">Value</li><li class="superclass">Object</li></ul>
 
 
 
@@ -175,7 +173,7 @@
     Overview
   </h2>
 
-  <p><code><a href="../../IconRenderer/Constants/Gamemode.html#spicy%3ABool-instance-method">#spicy</a></code> = uses 2.0 gamemode render system w/ multiple moving parts</p>
+  <p>Every gamemode in the game as of 2.2</p>
 
 
 
@@ -200,7 +198,7 @@
   </h2>
   
     
-      <a href="https://github.com/oatmealine/gd-icon-renderer/blob/4e0c9b8a5a23376ae7be7d19087b7ce7d5d5a77d/src/constants.cr#L115" target="_blank">
+      <a href="https://github.com/oatmealine/gd-icon-renderer/blob/4e0c9b8a5a23376ae7be7d19087b7ce7d5d5a77d/src/constants.cr#L118" target="_blank">
         constants.cr
       </a>
     
@@ -209,24 +207,66 @@
 
 
 
-
-
-  <h2>
-    <a id="constructors" class="anchor" href="#constructors">
+  
+    <h2>
+      <a id="enum-members" class="anchor" href="#enum-members">
   <svg class="octicon-link" aria-hidden="true">
     <use href="#octicon-link"/>
   </svg>
 </a>
-    Constructors
-  </h2>
-  <ul class="list-summary">
+      Enum Members
+    </h2>
+  
+  <dl>
     
-      <li class="entry-summary">
-        <a href="#new%28prefix%3AString%2Cspicy%3ABool%29-class-method" class="signature"><strong>.new</strong>(prefix : String, spicy : Bool)</a>
-        
-      </li>
+      <dt class="entry-const" id="Cube">
+        <strong>Cube</strong> = <code><span class="n">0</span></code>
+      </dt>
+      
     
-  </ul>
+      <dt class="entry-const" id="Ship">
+        <strong>Ship</strong> = <code><span class="n">1</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="Ball">
+        <strong>Ball</strong> = <code><span class="n">2</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="Ufo">
+        <strong>Ufo</strong> = <code><span class="n">3</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="Wave">
+        <strong>Wave</strong> = <code><span class="n">4</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="Robot">
+        <strong>Robot</strong> = <code><span class="n">5</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="Spider">
+        <strong>Spider</strong> = <code><span class="n">6</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="Jetpack">
+        <strong>Jetpack</strong> = <code><span class="n">7</span></code>
+      </dt>
+      
+    
+      <dt class="entry-const" id="Swing">
+        <strong>Swing</strong> = <code><span class="n">8</span></code>
+      </dt>
+      
+    
+  </dl>
+
+
 
 
 
@@ -245,22 +285,47 @@
   <ul class="list-summary">
     
       <li class="entry-summary">
-        <a href="#clone-instance-method" class="signature"><strong>#clone</strong></a>
+        <a href="#ball%3F-instance-method" class="signature"><strong>#ball?</strong></a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#copy_with%28prefix_prefix%3D%40prefix%2Cspicy_spicy%3D%40spicy%29-instance-method" class="signature"><strong>#copy_with</strong>(prefix _prefix = @prefix, spicy _spicy = @spicy)</a>
+        <a href="#cube%3F-instance-method" class="signature"><strong>#cube?</strong></a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#prefix%3AString-instance-method" class="signature"><strong>#prefix</strong> : String</a>
+        <a href="#jetpack%3F-instance-method" class="signature"><strong>#jetpack?</strong></a>
         
       </li>
     
       <li class="entry-summary">
-        <a href="#spicy%3ABool-instance-method" class="signature"><strong>#spicy</strong> : Bool</a>
+        <a href="#robot%3F-instance-method" class="signature"><strong>#robot?</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#ship%3F-instance-method" class="signature"><strong>#ship?</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#spider%3F-instance-method" class="signature"><strong>#spider?</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#swing%3F-instance-method" class="signature"><strong>#swing?</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#ufo%3F-instance-method" class="signature"><strong>#ufo?</strong></a>
+        
+      </li>
+    
+      <li class="entry-summary">
+        <a href="#wave%3F-instance-method" class="signature"><strong>#wave?</strong></a>
         
       </li>
     
@@ -309,34 +374,21 @@
 
 
   
+    
+
+
+    
+
+
+    
+
+
+    
+
+
+  
 </div>
 
-
-  <h2>
-    <a id="constructor-detail" class="anchor" href="#constructor-detail">
-  <svg class="octicon-link" aria-hidden="true">
-    <use href="#octicon-link"/>
-  </svg>
-</a>
-    Constructor Detail
-  </h2>
-  
-    <div class="entry-detail" id="new(prefix:String,spicy:Bool)-class-method">
-      <div class="signature">
-        
-        def self.<strong>new</strong>(prefix : String, spicy : Bool)
-
-        <a class="method-permalink" href="#new%28prefix%3AString%2Cspicy%3ABool%29-class-method">#</a>
-      </div>
-      
-      <br/>
-      <div>
-        
-          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/4e0c9b8a5a23376ae7be7d19087b7ce7d5d5a77d/src/constants.cr#L115" target="_blank">View source</a>]
-        
-      </div>
-    </div>
-  
 
 
 
@@ -353,62 +405,146 @@
     Instance Method Detail
   </h2>
   
-    <div class="entry-detail" id="clone-instance-method">
+    <div class="entry-detail" id="ball?-instance-method">
       <div class="signature">
         
-        def <strong>clone</strong>
+        def <strong>ball?</strong>
 
-        <a class="method-permalink" href="#clone-instance-method">#</a>
+        <a class="method-permalink" href="#ball%3F-instance-method">#</a>
       </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/4e0c9b8a5a23376ae7be7d19087b7ce7d5d5a77d/src/constants.cr#L115" target="_blank">View source</a>]
+          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/4e0c9b8a5a23376ae7be7d19087b7ce7d5d5a77d/src/constants.cr#L121" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="copy_with(prefix_prefix=@prefix,spicy_spicy=@spicy)-instance-method">
+    <div class="entry-detail" id="cube?-instance-method">
       <div class="signature">
         
-        def <strong>copy_with</strong>(prefix _prefix = @prefix, spicy _spicy = @spicy)
+        def <strong>cube?</strong>
 
-        <a class="method-permalink" href="#copy_with%28prefix_prefix%3D%40prefix%2Cspicy_spicy%3D%40spicy%29-instance-method">#</a>
+        <a class="method-permalink" href="#cube%3F-instance-method">#</a>
       </div>
       
       <br/>
       <div>
         
-          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/4e0c9b8a5a23376ae7be7d19087b7ce7d5d5a77d/src/constants.cr#L115" target="_blank">View source</a>]
+          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/4e0c9b8a5a23376ae7be7d19087b7ce7d5d5a77d/src/constants.cr#L119" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="prefix:String-instance-method">
+    <div class="entry-detail" id="jetpack?-instance-method">
       <div class="signature">
         
-        def <strong>prefix</strong> : String
+        def <strong>jetpack?</strong>
 
-        <a class="method-permalink" href="#prefix%3AString-instance-method">#</a>
+        <a class="method-permalink" href="#jetpack%3F-instance-method">#</a>
       </div>
       
       <br/>
       <div>
+        
+          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/4e0c9b8a5a23376ae7be7d19087b7ce7d5d5a77d/src/constants.cr#L126" target="_blank">View source</a>]
         
       </div>
     </div>
   
-    <div class="entry-detail" id="spicy:Bool-instance-method">
+    <div class="entry-detail" id="robot?-instance-method">
       <div class="signature">
         
-        def <strong>spicy</strong> : Bool
+        def <strong>robot?</strong>
 
-        <a class="method-permalink" href="#spicy%3ABool-instance-method">#</a>
+        <a class="method-permalink" href="#robot%3F-instance-method">#</a>
       </div>
       
       <br/>
       <div>
+        
+          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/4e0c9b8a5a23376ae7be7d19087b7ce7d5d5a77d/src/constants.cr#L124" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="ship?-instance-method">
+      <div class="signature">
+        
+        def <strong>ship?</strong>
+
+        <a class="method-permalink" href="#ship%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/4e0c9b8a5a23376ae7be7d19087b7ce7d5d5a77d/src/constants.cr#L120" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="spider?-instance-method">
+      <div class="signature">
+        
+        def <strong>spider?</strong>
+
+        <a class="method-permalink" href="#spider%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/4e0c9b8a5a23376ae7be7d19087b7ce7d5d5a77d/src/constants.cr#L125" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="swing?-instance-method">
+      <div class="signature">
+        
+        def <strong>swing?</strong>
+
+        <a class="method-permalink" href="#swing%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/4e0c9b8a5a23376ae7be7d19087b7ce7d5d5a77d/src/constants.cr#L127" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="ufo?-instance-method">
+      <div class="signature">
+        
+        def <strong>ufo?</strong>
+
+        <a class="method-permalink" href="#ufo%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/4e0c9b8a5a23376ae7be7d19087b7ce7d5d5a77d/src/constants.cr#L122" target="_blank">View source</a>]
+        
+      </div>
+    </div>
+  
+    <div class="entry-detail" id="wave?-instance-method">
+      <div class="signature">
+        
+        def <strong>wave?</strong>
+
+        <a class="method-permalink" href="#wave%3F-instance-method">#</a>
+      </div>
+      
+      <br/>
+      <div>
+        
+          [<a href="https://github.com/oatmealine/gd-icon-renderer/blob/4e0c9b8a5a23376ae7be7d19087b7ce7d5d5a77d/src/constants.cr#L123" target="_blank">View source</a>]
         
       </div>
     </div>
