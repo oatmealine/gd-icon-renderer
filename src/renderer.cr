@@ -55,10 +55,10 @@ module IconRenderer::Renderer
   # Example:
   # ```
   # SHEET = IconRenderer::Assets.load_spritesheet("data/icons/ship_44-uhd.plist")
-  # icon_img = IconRenderer::Renderer.render_normal("ship_44", [0.0, 0.0, 0.0, 1.0], [255/255, 125/255, 125/255, 1.0], true, SHEET)
+  # icon_img = IconRenderer::Renderer.render_normal("ship_44", [0.0, 0.0, 0.0, 1.0], [255/255, 125/255, 125/255, 1.0], nil, true, SHEET)
   # ```
-  def render_normal(basename : String, col1 : Array(Float64), col2 : Array(Float64), glow : Bool, sheet : Assets::LoadedSpritesheet)
-    glow_col = is_black(col2) ? (is_black(col1) ? [1.0, 1.0, 1.0, 1.0] : col1) : col2
+  def render_normal(basename : String, col1 : Array(Float64), col2 : Array(Float64), col3 : Array(Float64)?, glow : Bool, sheet : Assets::LoadedSpritesheet)
+    glow_col = col3 || is_black(col2) ? (is_black(col1) ? [1.0, 1.0, 1.0, 1.0] : col1) : col2
 
     layers = [
       (glow || (is_black(col1) && is_black(col2))) ? Assets.get_sprite(sheet, "#{basename}_glow_001.png") : nil,
@@ -90,10 +90,10 @@ module IconRenderer::Renderer
   # ```
   # SHEET = IconRenderer::Assets.load_spritesheet("data/icons/spider_01-uhd.plist")
   # SPIDER_ANIMATIONS = IconRenderer::Assets.load_animations("data/Spider_AnimDesc.plist")
-  # icon_img = IconRenderer::Renderer.render_icon("spider_01", [0.0, 0.0, 0.0, 1.0], [255/255, 125/255, 125/255, 1.0], true, SHEET, SPIDER_ANIMATIONS)
+  # icon_img = IconRenderer::Renderer.render_icon("spider_01", [0.0, 0.0, 0.0, 1.0], [255/255, 125/255, 125/255, 1.0], nil, true, SHEET, SPIDER_ANIMATIONS)
   # ```
-  def render_spicy(basename : String, col1 : Array(Float64), col2 : Array(Float64), glow : Bool, sheet : Assets::LoadedSpritesheet, animations : Assets::Animations)
-    glow_col = is_black(col2) ? (is_black(col1) ? [1.0, 1.0, 1.0, 1.0] : col1) : col2
+  def render_spicy(basename : String, col1 : Array(Float64), col2 : Array(Float64), col3 : Array(Float64)?, glow : Bool, sheet : Assets::LoadedSpritesheet, animations : Assets::Animations)
+    glow_col = col3 || is_black(col2) ? (is_black(col1) ? [1.0, 1.0, 1.0, 1.0] : col1) : col2
     glow = (glow || (is_black(col1) && is_black(col2)))
 
     # todo: change to argument
@@ -169,13 +169,13 @@ module IconRenderer::Renderer
   # # Write it to a file
   # icon_img.write_to_file("icon_rendered.png")
   # ```
-  def render_icon(gamemode_type : Constants::GamemodeType, icon : Int32, col1 : Array(Float64), col2 : Array(Float64), glow : Bool, sheet : Assets::LoadedSpritesheet, robot_animations : Assets::Animations, spider_animations : Assets::Animations)
+  def render_icon(gamemode_type : Constants::GamemodeType, icon : Int32, col1 : Array(Float64), col2 : Array(Float64), col3 : Array(Float64)?, glow : Bool, sheet : Assets::LoadedSpritesheet, robot_animations : Assets::Animations, spider_animations : Assets::Animations)
     gamemode = Constants::Gamemodes[gamemode_type]
     basename = get_basename(gamemode_type, icon)
     if gamemode.spicy
-      render_spicy(basename, col1, col2, glow, sheet, gamemode_type.robot? ? robot_animations : spider_animations)
+      render_spicy(basename, col1, col2, col3, glow, sheet, gamemode_type.robot? ? robot_animations : spider_animations)
     else
-      render_normal(basename, col1, col2, glow, sheet)
+      render_normal(basename, col1, col2, col3, glow, sheet)
     end
   end
 end

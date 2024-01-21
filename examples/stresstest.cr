@@ -9,6 +9,6 @@ ANIMATIONS = IconRenderer::Assets.load_animations("data/Spider_AnimDesc.plist")
 
 (1 .. ITERS).each do |i|
   puts i
-  icon_img = IconRenderer::Renderer.render_spicy("spider_16", [0.0, 0.0, 0.0, 1.0], [255/255, 125/255, 125/255, 1.0], true, SHEET, ANIMATIONS)
+  icon_img = IconRenderer::Renderer.render_spicy("spider_16", [0.0, 0.0, 0.0, 1.0], [255/255, 125/255, 125/255, 1.0], nil, true, SHEET, ANIMATIONS)
   icon_img.write_to_file("icon_rendered.png")
 end
