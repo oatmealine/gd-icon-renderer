@@ -27,20 +27,19 @@ You'll need to install [libvips](https://www.libvips.org/install.html), alongsid
 
 ## Usage
 
-Currently, for most examples under `examples/`, you'll have to plug `GJ_GameSheet02-uhd` and `GJ_GameSheetGlow-uhd` along with their `plist` files in `data/`. Otherwise, the process for rendering an icon is as follows:
+Currently, for most examples under `examples/`, you'll have to plug the `icons` folder of your GD install in `data/`. Otherwise, the process for rendering an icon is as follows:
 
 1. Load spritesheets:
 
     ```crystal
     # Replace the filepaths here with whatever is relevant for your usecase
-    GAME_SHEET_02 = IconRenderer::Assets.load_spritesheet("data/GJ_GameSheet02-uhd.plist")
-    GAME_SHEET_GLOW = IconRenderer::Assets.load_spritesheet("data/GJ_GameSheetGlow-uhd.plist")
+    sheet = IconRenderer::Assets.load_spritesheet("data/icons/ship_44-uhd.plist")
     ```
 
 2. Render the icon out:
 
     ```crystal
-    icon_img = IconRenderer::Renderer.render_icon("ship_44", [0.0, 0.0, 0.0, 1.0], [255/255, 125/255, 125/255, 1.0], true, GAME_SHEET_02, GAME_SHEET_GLOW)
+    icon_img = IconRenderer::Renderer.render_icon("ship_44", [0.0, 0.0, 0.0, 1.0], [255/255, 125/255, 125/255, 1.0], nil, true, sheet)
     ```
 
     You'll now be given a [`Vips::Image`](https://naqvis.github.io/crystal-vips/Vips/Image.html).

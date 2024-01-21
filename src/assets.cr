@@ -124,7 +124,7 @@ module IconRenderer::Assets
   # Loads the spritesheet and readies the associated image.
   def load_spritesheet(path : Path)
     spritesheet = parse_spritesheet(path)
-    image_path = path.parent / spritesheet.texture_file_name
+    image_path = path.parent / (spritesheet.texture_file_name.split("/").last)
     LoadedSpritesheet.new(spritesheet, Vips::Image.new_from_file(image_path.to_s))
   end
 
